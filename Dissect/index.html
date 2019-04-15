@@ -21,10 +21,9 @@
         <div id="nav-bar">
             <div id="nav-bar-tracks">
                 <h3>Tracks</h3>
-                <a onclick="loadTrack(this);">A Day In The Life</a>
-                <a onclick="loadTrack(this);">Abbey Road Medley</a>
                 <a onclick="loadTrack(this);">Don't Let Me Down</a>
                 <a onclick="loadTrack(this);">Lucy in the Sky with Diamonds</a>
+                <a onclick="loadTrack(this);">Norwegian Wood</a>
                 <a onclick="loadTrack(this);">Something</a>
             </div>
             <div id="nav-bar-current">
@@ -35,12 +34,15 @@
         </div>
         
         <div id="tracks-player">
-            <span id="play" onclick="togglePlayback();">Play</span>
+            <span name="play" id="paused" onclick="togglePlayback();">Play</span>
             
             <div class="track">
                 <button id="_1">Drums</button>
-                <button className="solo" onclick="solo(this);">Solo</button>
-                <button className="mute" onclick="mute(this);">Mute</button>
+                <div class="toggle">
+                    <button class="solo" onclick="solo(this);">Solo</button>
+                    <button class="add" onclick="add(this);">Add</button>
+                    <button class="mute" onclick="mute(this);">Mute</button>
+                </div>
                 <audio controls id="track-1">
                     <source type="audio/mpeg" src="audio/Something (drums).mp3">
                 </audio>
@@ -48,8 +50,11 @@
                 
             <div class="track">
                 <button id="_2">Bass</button>
-                <button className="solo" onclick="solo(this);">Solo</button>
-                <button className="mute" onclick="mute(this);">Mute</button>
+                <div class="toggle">
+                    <button class="solo" onclick="solo(this);">Solo</button>
+                    <button class="add" onclick="add(this);">Add</button>
+                    <button class="mute" onclick="mute(this);">Mute</button>
+                </div>
                 <audio controls id="track-2"> 
                     <source type="audio/mpeg" src="audio/Something (bass).mp3">
                 </audio>
@@ -57,8 +62,11 @@
 
             <div class="track">
                 <button id="_3">Guitar</button>
-                <button className="solo" onclick="solo(this);">Solo</button>
-                <button className="mute" onclick="mute(this);">Mute</button>
+                <div class="toggle">
+                    <button class="solo" onclick="solo(this);">Solo</button>
+                    <button class="add" onclick="add(this);">Add</button>
+                    <button class="mute" onclick="mute(this);">Mute</button>
+                </div>
                 <audio controls id="track-3">
                     <source type="audio/mpeg" src="audio/Something (guitar).mp3">
                 </audio>
@@ -66,8 +74,11 @@
 
             <div class="track">
                     <button id="_4">Vox</button>
-                    <button className="solo" onclick="solo(this);">Solo</button>
-                    <button className="mute" onclick="mute(this);">Mute</button>
+                    <div class="toggle">
+                        <button class="solo" onclick="solo(this);">Solo</button>
+                        <button class="add" onclick="add(this);">Add</button>
+                        <button class="mute" onclick="mute(this);">Mute</button>
+                    </div>
                     <audio controls id="track-4">
                         <source type="audio/mpeg" src="audio/Something (vox).mp3">
                     </audio>
@@ -75,8 +86,11 @@
             
             <div class="track">
                 <button id="_5">Organ + Strings</button>
-                <button className="solo" onclick="solo(this);">Solo</button>
-                <button className="mute" onclick="mute(this);">Mute</button>
+                <div class="toggle">
+                    <button class="solo" onclick="solo(this);">Solo</button>
+                    <button class="add" onclick="add(this);">Add</button>
+                    <button class="mute" onclick="mute(this);">Mute</button>
+                </div>
                 <audio controls id="track-5">
                     <source type="audio/mpeg" src="audio/Something (orchestral).mp3">
                 </audio>
