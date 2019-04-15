@@ -1,8 +1,8 @@
-const track1 = document.getElementById('track-1');
-const track2 = document.getElementById('track-2');
-const track3 = document.getElementById('track-3');
-const track4 = document.getElementById('track-4');
-const track5 = document.getElementById('track-5');
+export const track1 = document.getElementById('track-1');
+export const track2 = document.getElementById('track-2');
+export const track3 = document.getElementById('track-3');
+export const track4 = document.getElementById('track-4');
+export const track5 = document.getElementById('track-5');
 
 const play = document.getElementsByName("play")[0];
 
@@ -27,8 +27,27 @@ const resetTrack = () => {
     play.innerHTML = "Play"; play.id = "paused";
 }
 
-const solo = (event) => {
-    if (event.parentElement.parentElement.firstElementChild.id == "_1"){
+const eventInterpreter = (event) => {
+    debugger
+    const track = event.parentElement.parentElement.firstElementChild.id;
+    const action = event.innerHTML;
+
+    if (action == "Solo") {
+        this.solo(track);
+    } 
+
+    if (action == "Add") {
+        this.add(track);
+    }
+
+    if (action == "Mute") {
+        this.mute(track);
+    }
+}
+
+export const solo = (track) => {
+
+    if (track == "_1"){
         track1.muted = false;
         track2.muted = true;
         track3.muted = true;
@@ -36,7 +55,7 @@ const solo = (event) => {
         track5.muted = true;
     }
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_2"){
+    if (track == "_2"){
         track1.muted = true;
         track2.muted = false;
         track3.muted = true;
@@ -44,7 +63,7 @@ const solo = (event) => {
         track5.muted = true;
     }
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_3"){
+    if (track == "_3"){
         track1.muted = true;
         track2.muted = true;
         track3.muted = false;
@@ -52,7 +71,7 @@ const solo = (event) => {
         track5.muted = true;
     }
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_4"){
+    if (track == "_4"){
         track1.muted = true;
         track2.muted = true;
         track3.muted = true;
@@ -60,7 +79,7 @@ const solo = (event) => {
         track5.muted = true;
     }
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_5"){
+    if (track == "_5"){
         track1.muted = true;
         track2.muted = true;
         track3.muted = true;
@@ -69,37 +88,37 @@ const solo = (event) => {
     }
 }
 
-const add = (event) =>{
-    if (event.parentElement.parentElement.firstElementChild.id == "_1"){
+export const add = (event) =>{
+    if (track == "_1"){
         track1.muted = false;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_2"){
+    if (track == "_2"){
         track2.muted = false;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_3"){
+    if (track == "_3"){
         track3.muted = false;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_4"){
+    if (track == "_4"){
         track4.muted = false;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_5"){
+    if (track == "_5"){
         track5.muted = false;}
 }
 
-const mute = (event) =>{
-    if (event.parentElement.parentElement.firstElementChild.id == "_1"){
+export const mute = (event) =>{
+    if (track == "_1"){
         track1.muted = true;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_2"){
+    if (track == "_2"){
         track2.muted = true;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_3"){
+    if (track == "_3"){
         track3.muted = true;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_4"){
+    if (track == "_4"){
         track4.muted = true;}
 
-    if (event.parentElement.parentElement.firstElementChild.id == "_5"){
+    if (track == "_5"){
         track5.muted = true;}
 }
 
