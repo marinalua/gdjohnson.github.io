@@ -4,7 +4,7 @@ const track3 = document.getElementById('track-3');
 const track4 = document.getElementById('track-4');
 const track5 = document.getElementById('track-5');
 
-const play = document.getElementsByName("play")[0]
+const play = document.getElementsByName("play")[0];
 
 const togglePlayback = () => {
     if (play.id === "paused"){
@@ -28,7 +28,6 @@ const resetTrack = () => {
 }
 
 const solo = (event) => {
-    debugger
     if (event.parentElement.parentElement.firstElementChild.id == "_1"){
         track1.muted = false;
         track2.muted = true;
@@ -105,6 +104,9 @@ const mute = (event) =>{
 }
 
 const loadTrack = (event) => {
+    debugger
+    event.style.color = "green";
+
     if (event.innerHTML == "A Day In The Life"){
         track1.firstChild.nextSibling.src = "";
         track2.firstChild.nextSibling.src = "";
@@ -114,6 +116,8 @@ const loadTrack = (event) => {
     }
 
     if (event.innerHTML == "Don't Let Me Down"){
+        
+
         track1.firstChild.nextSibling.src = "audio/Don't Let Me Down (drums).mp3";
         track1.parentElement.firstElementChild.innerHTML = "Drums"
 

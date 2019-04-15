@@ -93,7 +93,7 @@ p{
 }
 
 #nav-bar-tracks > a:hover, #nav-bar-current > a:hover, a:hover{
-    color: red;
+    color: green;
 }
 
 #tracks-player{
@@ -125,7 +125,7 @@ p{
 .solo {
     border: 0px;
     background: transparent;
-    color: green;
+    /* color: green; */
     opacity: 0.5;
     font-weight: 500;
     text-transform: uppercase;
@@ -136,7 +136,7 @@ p{
 .mute {
     border: 0px;
     background: transparent;
-    color: red;
+    /* color: red; */
     opacity: 0.5;
     font-weight: 500;
     text-transform: uppercase;
@@ -147,7 +147,7 @@ p{
 .add {
     border: 0px;
     background: transparent;
-    color: gold;
+    /* color: gold; */
     opacity: 0.5;
     font-weight: 500;
     text-transform: uppercase;
