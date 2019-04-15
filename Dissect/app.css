@@ -104,7 +104,7 @@ p{
     padding: 32px;
 }
 
-button{
+#_1, #_2, #_3, #_4, #_5 {
     width: 75px;
     border: 1px solid black;
     border-radius: 0px;
@@ -112,6 +112,17 @@ button{
     color: black;
     margin-right: 25px;
     text-align: center;
+}
+
+.solo {
+    border: 0px;
+    background: transparent;
+    color: green;
+}
+
+.mute {
+    border: 0px;
+    color: red;
 }
 
 button:hover{

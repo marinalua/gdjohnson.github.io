@@ -1,15 +1,8 @@
-const bassButton = document.getElementById('solo-bass');
-const guitButton = document.getElementById('solo-guitar');
-const voxButton = document.getElementById('solo-vox');
-const organButton = document.getElementById('solo-organ');
-const drumsButton = document.getElementById('solo-drums');
-
-
-const bass = document.getElementById('bass-track');
-const guit = document.getElementById('guitar-track');
-const vox = document.getElementById('vox-track');
-const organ = document.getElementById('organ-track');
-const drums = document.getElementById('drums-track');
+const track1 = document.getElementById('track-1');
+const track2 = document.getElementById('track-2');
+const track3 = document.getElementById('track-3');
+const track4 = document.getElementById('track-4');
+const track5 = document.getElementById('track-5');
 
 const togglePlayback = () => {
     if (bass.paused === true){
@@ -26,98 +19,92 @@ const resetTrack = () => {
 
 const solo = (event) => {
     debugger
-    if (event.innerHTML == "Solo Bass"){
-        vox.muted = true;
-        guit.muted = true;
-        organ.muted = true;
-        drums.muted = true;
-        bass.muted = false;
+    if (event.parentElement.firstElementChild.id == "_1"){
+        track1.muted = false;
+        track2.muted = true;
+        track3.muted = true;
+        track4.muted = true;
+        track5.muted = true;
     }
 
-    if (event.innerHTML == "Solo Guitar"){
-        vox.muted = true;
-        bass.muted = true;
-        organ.muted = true;
-        drums.muted = true;
-        guit.muted = false;
+    if (event.parentElement.firstElementChild.id == "_2"){
+        track1.muted = true;
+        track2.muted = false;
+        track3.muted = true;
+        track4.muted = true;
+        track5.muted = true;
     }
 
-    if (event.innerHTML == "Solo Vocals"){
-        bass.muted = true;
-        guit.muted = true;
-        organ.muted = true;
-        drums.muted = true;
-        vox.muted = false;
+    if (event.parentElement.firstElementChild.id == "_3"){
+        track1.muted = true;
+        track2.muted = true;
+        track3.muted = false;
+        track4.muted = true;
+        track5.muted = true;
     }
 
-    if (event.innerHTML == "Solo Organ"){
-        bass.muted = true;
-        guit.muted = true;
-        vox.muted = true;
-        drums.muted = true;
-        organ.muted = false;
+    if (event.parentElement.firstElementChild.id == "_4"){
+        track1.muted = true;
+        track2.muted = true;
+        track3.muted = true;
+        track4.muted = false;
+        track5.muted = true;
     }
 
-    if (event.innerHTML == "Solo Drums"){
-        bass.muted = true;
-        guit.muted = true;
-        vox.muted = true;
-        organ.muted = true;
-        drums.muted = false;
+    if (event.parentElement.firstElementChild.id == "_5"){
+        track1.muted = true;
+        track2.muted = true;
+        track3.muted = true;
+        track4.muted = true;
+        track5.muted = false;
     }
 }
 
 const loadTrack = (event) => {
     if (event.innerHTML == "A Day In The Life"){
-        let bassSrc  = document.getElementById("bass-track").firstChild.nextSibling;
-        bassSrc.src  = "";
-        let voxSrc  = document.getElementById("vox-track").firstChild.nextSibling;
-        voxSrc.src  = "";
-        let guitarSrc  = document.getElementById("guitar-track").firstChild.nextSibling;
-        guitarSrc.src  = "";
-        let organSrc  = document.getElementById("organ-track").firstChild.nextSibling;
-        organSrc.src  = "";
-        let drumsSrc  = document.getElementById("drums-track").firstChild.nextSibling;
-        drumsSrc.src  = "";
+        track1.firstChild.nextSibling.src  = "";
+        track2.firstChild.nextSibling.src  = "";
+        track3.firstChild.nextSibling.src  = "";
+        track4.firstChild.nextSibling.src  = "";
+        track5.firstChild.nextSibling.src  = "";
     }
 
-    if (event.innerHTML == "Abbey Road Medley"){
-        let bassSrc  = document.getElementById("bass-track").firstChild.nextSibling;
-        bassSrc.src  = "";
-        let voxSrc  = document.getElementById("vox-track").firstChild.nextSibling;
-        voxSrc.src  = "";
-        let guitarSrc  = document.getElementById("guitar-track").firstChild.nextSibling;
-        guitarSrc.src  = "";
-        let organSrc  = document.getElementById("organ-track").firstChild.nextSibling;
-        organSrc.src  = "";
-        let drumsSrc  = document.getElementById("drums-track").firstChild.nextSibling;
-        drumsSrc.src  = "";
+    if (event.innerHTML == "Don't Let Me Down"){
+        track1.firstChild.nextSibling.src  = "audio/Don't Let Me Down (drums)";
+        track2.firstChild.nextSibling.src  = "audio/Don't Let Me Down (bass)";
+        track3.firstChild.nextSibling.src  = "audio/Don't Let Me Down (guitar)";
+        track4.firstChild.nextSibling.src  = "audio/Don't Let Me Down (vox)";
+        track5.firstChild.nextSibling.src  = "audio/Don't Let Me Down (organ)";
+    }
+
+    if (event.innerHTML == "Norwegian Wood"){
+        track1.firstChild.nextSibling.src  = "audio/Norwegian Wood (drums)";
+        track2.firstChild.nextSibling.src  = "audio/Norwegian Wood (bass)";
+        track3.firstChild.nextSibling.src  = "audio/Norwegian Wood (sitar)";
+        track3.parentElement.firstElementChild.innerHTML = "Sitar"
+        track4.firstChild.nextSibling.src  = "audio/Norwegian Wood (vox + guitar)";
+        track4.parentElement.firstElementChild.innerHTML = "Vox + Acoustic"
+        track5.firstChild.nextSibling.src  = "audio/Norwegian Wood (count)";
+        track5.parentElement.firstElementChild.innerHTML = "Count"
     }
 
     if (event.innerHTML == "Lucy in the Sky with Diamonds"){
-        let bassSrc  = document.getElementById("bass-track").firstChild.nextSibling;
-        bassSrc.src  = "audio/Lucy (bass).mp3";
-        let voxSrc  = document.getElementById("vox-track").firstChild.nextSibling;
-        voxSrc.src  = "audio/Lucy (vox).mp3";
-        let guitarSrc  = document.getElementById("guitar-track").firstChild.nextSibling;
-        guitarSrc.src  = "audio/Lucy (acoustic + organ).mp3";
-        let organSrc  = document.getElementById("organ-track").firstChild.nextSibling;
-        organSrc.src  = "audio/Lucy (organ).mp3";
-        let drumsSrc  = document.getElementById("drums-track").firstChild.nextSibling;
-        drumsSrc.src  = "audio/Lucy (drums).mp3";
+        track1.firstChild.nextSibling.src  = "audio/Lucy (drums).mp3";
+        track2.firstChild.nextSibling.src  = "audio/Lucy (bass).mp3";
+        track3.firstChild.nextSibling.src  = "audio/Lucy (organ).mp3";
+        track3.parentElement.firstElementChild.innerHTML = "Lowrey Organ"
+        track4.firstChild.nextSibling.src  = "audio/Lucy (vox).mp3";
+        track5.firstChild.nextSibling.src  = "audio/Lucy (acoustic + organ).mp3";
+        track3.parentElement.firstElementChild.innerHTML = "Acoustic + Organ"
     }
 
     if (event.innerHTML == "Something"){
-        let bassSrc  = document.getElementById("bass-track").firstChild.nextSibling;
-        bassSrc.src  = "audio/Something (bass).mp3";
-        let voxSrc  = document.getElementById("vox-track").firstChild.nextSibling;
-        voxSrc.src  = "audio/Something (vox).mp3";
-        let guitarSrc  = document.getElementById("guitar-track").firstChild.nextSibling;
-        guitarSrc.src  = "audio/Something (guitar).mp3";
-        let organSrc  = document.getElementById("organ-track").firstChild.nextSibling;
-        organSrc.src  = "audio/Something (orchestral).mp3";
-        let drumsSrc  = document.getElementById("drums-track").firstChild.nextSibling;
-        drumsSrc.src  = "audio/Something (drums).mp3";
+        track1.firstChild.nextSibling.src  = "audio/Something (drums).mp3";
+        track2.firstChild.nextSibling.src  = "audio/Something (bass).mp3";
+        track3.firstChild.nextSibling.src  = "audio/Something (guitar).mp3";
+        track4.firstChild.nextSibling.src  = "audio/Something (vox).mp3";
+        track5.firstChild.nextSibling.src  = "audio/Something (orchestral).mp3";
+        track5.parentElement.firstElementChild.innerHTML = "Strings + Organ"
     }
 
     resetTrack();

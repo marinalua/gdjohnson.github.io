@@ -35,39 +35,49 @@
         </div>
         
         <div id="tracks-player">
-            <span id="play" onclick="togglePlayback();">Play</span>
+            <span id="_play" onclick="togglePlayback();">Play</span>
             
             <div class="track">
-                <button id="solo-bass" onclick="solo(this);">Solo Bass</button>
-                <audio controls id="bass-track">
-                    <source type="audio/mpeg" src="audio/Something (bass).mp3">
+                <button id="_1">Drums</button>
+                <button className="solo" onclick="solo(this);">Solo</button>
+                <button className="mute" onclick="mute(this);">Mute</button>
+                <audio controls id="track-1">
+                    <source type="audio/mpeg" src="audio/Something (drums).mp3">
                 </audio>
             </div>
                 
             <div class="track">
-                <button id="solo-guitar" onclick="solo(this);">Solo Guitar</button>
-                <audio controls id="guitar-track"> 
+                <button id="_2">Bass</button>
+                <button className="solo" onclick="solo(this);">Solo</button>
+                <button className="mute" onclick="mute(this);">Mute</button>
+                <audio controls id="track-2"> 
+                    <source type="audio/mpeg" src="audio/Something (bass).mp3">
+                </audio>
+            </div>
+
+            <div class="track">
+                <button id="_3">Guitar</button>
+                <button className="solo" onclick="solo(this);">Solo</button>
+                <button className="mute" onclick="mute(this);">Mute</button>
+                <audio controls id="track-3">
                     <source type="audio/mpeg" src="audio/Something (guitar).mp3">
                 </audio>
             </div>
 
             <div class="track">
-                <button id="solo-vox" onclick="solo(this);">Solo Vocals</button>
-                <audio controls id="vox-track">
-                    <source type="audio/mpeg" src="audio/Something (vox).mp3">
-                </audio>
-            </div>
-
-            <div class="track">
-                    <button id="solo-drums" onclick="solo(this);">Solo Drums</button>
-                    <audio controls id="drums-track">
-                        <source type="audio/mpeg" src="audio/Something (drums).mp3">
+                    <button id="_4">Vox</button>
+                    <button className="solo" onclick="solo(this);">Solo</button>
+                    <button className="mute" onclick="mute(this);">Mute</button>
+                    <audio controls id="track-4">
+                        <source type="audio/mpeg" src="audio/Something (vox).mp3">
                     </audio>
                 </div>
             
             <div class="track">
-                <button id="solo-organ" onclick="solo(this);">Solo Organ</button>
-                <audio controls id="organ-track">
+                <button id="_5">Organ + Strings</button>
+                <button className="solo" onclick="solo(this);">Solo</button>
+                <button className="mute" onclick="mute(this);">Mute</button>
+                <audio controls id="track-5">
                     <source type="audio/mpeg" src="audio/Something (orchestral).mp3">
                 </audio>
             </div>
