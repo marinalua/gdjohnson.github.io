@@ -1,0 +1,141 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#bs{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: left;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+a, p{
+    font-family: Helvetica, Arial, sans-serif
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 10px; 
+    margin-bottom: 8px;
+}
+
+#self-promotion{
+    display: flex;
+    flex-direction: column;
+    padding-top: 33.5px;
+    padding-bottom: 8px;
+    align-items: flex-end;
+}
+
+#self-promotion a{
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    margin-bottom: 2px;
+}
+
+#self-promotion a:hover{
+    border-bottom: 1px solid red;
+}
+
+h3{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    font-family: serif;
+    font-style: italic;
+}
+
+p{
+    font-size: 20px;
+}
+
+#nav-bar{
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    margin-right: 40px;
+    border: 1px solid black;
+    justify-content: flex-start;
+    width: 220px;
+}
+
+#nav-bar-tracks, #nav-bar-current{
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-bar a {
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+    padding-left: 12px;
+    padding-bottom: 2px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#nav-bar-tracks > a:hover, #nav-bar-current > a:hover, a:hover{
+    color: red;
+}
+
+#tracks-player{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    border: 1px solid black;
+    padding: 32px;
+}
+
+button{
+    width: 75px;
+    border: 1px solid black;
+    border-radius: 0px;
+    background: white;
+    color: black;
+    margin-right: 25px;
+    text-align: center;
+}
+
+button:hover{
+    color: red;
+}
+
+#play{
+    padding-bottom: 40px;
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 550;
+    cursor: pointer;
+    width: 60px;
+}
+
+#play:hover{
+    color: red;
+}
+
+.track {
+    display: flex;
+    padding-bottom: 30px;
+}
+
+audio {
+    width: 90%;
+}
