@@ -5,16 +5,16 @@ const track4 = document.getElementById('track-4');
 const track5 = document.getElementById('track-5');
 
 const togglePlayback = () => {
-    if (bass.paused === true){
-        bass.play(); guit.play(); vox.play(); organ.play(); drums.play();
+    if (track1.paused === true){
+        track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
     } else {
-        bass.pause(); guit.play(); vox.play(); organ.play(); drums.play();
+        track1.pause(); track2.play(); track3.play(); track4.play(); track5.play();
     }
 
 }
 
 const resetTrack = () => {
-    bass.load(); guit.load(); vox.load(); organ.load(); drums.load();
+    track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
 }
 
 const solo = (event) => {
