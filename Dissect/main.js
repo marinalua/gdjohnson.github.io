@@ -1,8 +1,8 @@
-export const track1 = document.getElementById('track-1');
-export const track2 = document.getElementById('track-2');
-export const track3 = document.getElementById('track-3');
-export const track4 = document.getElementById('track-4');
-export const track5 = document.getElementById('track-5');
+const track1 = document.getElementById('track-1');
+const track2 = document.getElementById('track-2');
+const track3 = document.getElementById('track-3');
+const track4 = document.getElementById('track-4');
+const track5 = document.getElementById('track-5');
 
 const play = document.getElementsByName("play")[0];
 
@@ -206,3 +206,5 @@ const loadTrack = (event) => {
 
     resetTrack();
 }
+
+module.exports = { track1: track1 };
