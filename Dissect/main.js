@@ -1,12 +1,6 @@
-export const track1 = document.getElementById('track-1');
-export const track2 = document.getElementById('track-2');
-export const track3 = document.getElementById('track-3');
-export const track4 = document.getElementById('track-4');
-export const track5 = document.getElementById('track-5');
+const play = document.getElementsByName("play")[0];
 
-export const play = document.getElementsByName("play")[0];
-
-export const togglePlayback = () => {
+const togglePlayback = () => {
     if (play.id === "paused"){
         setTimeout(() => {
             track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
@@ -22,12 +16,12 @@ export const togglePlayback = () => {
     }
 }
 
-export const resetTrack = () => {
+const resetTrack = () => {
     track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
     play.innerHTML = "Play"; play.id = "paused";
 }
 
-export const eventInterpreter = (event) => {
+const eventInterpreter = (event) => {
     debugger
     const track = event.parentElement.parentElement.firstElementChild.id;
     const action = event.innerHTML;
@@ -45,7 +39,7 @@ export const eventInterpreter = (event) => {
     }
 }
 
-export const solo = (track) => {
+const solo = (track) => {
 
     if (track == "_1"){
         track1.muted = false;
@@ -88,7 +82,7 @@ export const solo = (track) => {
     }
 }
 
-export const add = (event) =>{
+const add = (event) =>{
     if (track == "_1"){
         track1.muted = false;}
 
@@ -105,7 +99,7 @@ export const add = (event) =>{
         track5.muted = false;}
 }
 
-export const mute = (event) =>{
+const mute = (event) =>{
     if (track == "_1"){
         track1.muted = true;}
 
@@ -122,89 +116,5 @@ export const mute = (event) =>{
         track5.muted = true;}
 }
 
-export const loadTrack = (event) => {
-    debugger
-    event.style.color = "green";
-
-    if (event.innerHTML == "A Day In The Life"){
-        track1.firstChild.nextSibling.src = "";
-        track2.firstChild.nextSibling.src = "";
-        track3.firstChild.nextSibling.src = "";
-        track4.firstChild.nextSibling.src = "";
-        track5.firstChild.nextSibling.src = "";
-    }
-
-    if (event.innerHTML == "Don't Let Me Down"){
-        
-
-        track1.firstChild.nextSibling.src = "audio/Don't Let Me Down (drums).mp3";
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-
-        track2.firstChild.nextSibling.src = "audio/Don't Let Me Down (bass).mp3";
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-
-        track3.firstChild.nextSibling.src = "audio/Don't Let Me Down (guitar).mp3";
-        track3.parentElement.firstElementChild.innerHTML = "Guitar"
-
-        track4.firstChild.nextSibling.src = "audio/Don't Let Me Down (vox).mp3";
-        track4.parentElement.firstElementChild.innerHTML = "Vox"
-
-        track5.firstChild.nextSibling.src = "audio/Don't Let Me Down (organ).mp3";
-        track5.parentElement.firstElementChild.innerHTML = "Organ"
-    }
-
-    if (event.innerHTML == "Norwegian Wood"){
-        track1.firstChild.nextSibling.src = "audio/Norwegian Wood (drums).mp3";
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-
-        track2.firstChild.nextSibling.src = "audio/Norwegian Wood (bass).mp3";
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-
-        track3.firstChild.nextSibling.src = "audio/Norwegian Wood (sitar).mp3";
-        track3.parentElement.firstElementChild.innerHTML = "Sitar"
-
-        track4.firstChild.nextSibling.src = "audio/Norwegian Wood (vox + guitar).mp3";
-        track4.parentElement.firstElementChild.innerHTML = "Vox + Acoustic"
-
-        track5.firstChild.nextSibling.src = "audio/Norwegian Wood (count).mp3";
-        track5.parentElement.firstElementChild.innerHTML = "Count"
-    }
-
-    if (event.innerHTML == "Lucy in the Sky with Diamonds"){
-        track1.firstChild.nextSibling.src = "audio/Lucy (drums).mp3";
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-
-        track2.firstChild.nextSibling.src = "audio/Lucy (bass).mp3";
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-
-        track3.firstChild.nextSibling.src = "audio/Lucy (organ).mp3";
-        track3.parentElement.firstElementChild.innerHTML = "Lowrey Organ"
-
-        track4.firstChild.nextSibling.src = "audio/Lucy (vox).mp3";
-        track4.parentElement.firstElementChild.innerHTML = "Vox"
-
-        track5.firstChild.nextSibling.src = "audio/Lucy (acoustic + organ).mp3";
-        track3.parentElement.firstElementChild.innerHTML = "Acoustic + Organ"
-    }
-
-    if (event.innerHTML == "Something"){
-        track1.firstChild.nextSibling.src = "audio/Something (drums).mp3";
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-
-        track2.firstChild.nextSibling.src = "audio/Something (bass).mp3";
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-
-        track3.firstChild.nextSibling.src = "audio/Something (guitar).mp3";
-        track3.parentElement.firstElementChild.innerHTML = "Guitar"
-
-        track4.firstChild.nextSibling.src = "audio/Something (vox).mp3";
-        track4.parentElement.firstElementChild.innerHTML = "Vox"
-
-        track5.firstChild.nextSibling.src = "audio/Something (orchestral).mp3";
-        track5.parentElement.firstElementChild.innerHTML = "Strings + Organ"
-    }
-
-    resetTrack();
-}
 
 
