@@ -27,15 +27,15 @@ const eventInterpreter = (event) => {
     const action = event.innerHTML;
 
     if (action == "Solo") {
-        this.solo(track);
+        solo(track);
     } 
 
     if (action == "Add") {
-        this.add(track);
+        add(track);
     }
 
     if (action == "Mute") {
-        this.mute(track);
+        mute(track);
     }
 }
 
