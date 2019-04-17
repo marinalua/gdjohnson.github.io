@@ -1,4 +1,4 @@
-const track1 = document.getElementById('track-1');
+export const track1 = document.getElementById('track-1');
 const track2 = document.getElementById('track-2');
 const track3 = document.getElementById('track-3');
 const track4 = document.getElementById('track-4');
@@ -45,7 +45,7 @@ const eventInterpreter = (event) => {
     }
 }
 
-const solo = (track) => {
+export const solo = (track) => {
 
     if (track == "_1"){
         track1.muted = false;
@@ -207,4 +207,3 @@ const loadTrack = (event) => {
     resetTrack();
 }
 
-module.exports = { track1: track1, solo: solo };

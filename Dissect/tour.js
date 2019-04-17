@@ -1,5 +1,4 @@
-const track1 = require('main').track1;
-const solo = require('main.solo');
+import { solo, track1 } from 'main';
 
 const tourTrack = () => {
     const src = track1.firstChild.nextSibling.src;
