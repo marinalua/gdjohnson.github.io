@@ -143,6 +143,22 @@ const loadTracks = (event) => {
 
 const resetTrack = () => {
     track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
+    
+    //Reset all pan sliders
+    Array.from(document.getElementsByClassName('input-wrapper')).forEach(
+        (wrapper) => {
+            wrapper.firstElementChild.value = 0;
+        }
+    )
+
+    // //Reset all control hide/show
+    // Array.from(document.getElementsByClassName('track')).forEach(
+    //     (track) => {
+    //         track.children[1].style.display = "none";
+    //         track.children[2].style.display = "none";
+    //     }
+    // )
+
     play.innerHTML = "Play"; play.id = "paused";
     window.newTrack = true;
 }

@@ -4,19 +4,21 @@ window.addEventListener('DOMContentLoaded', () => {
     loadTracks({innerHTML: "Something"});
     // var context1; var context2; var context3; var context4; var context5;
     window.context1 = new window.AudioContext;
-    window.src1 = context1.createMediaElementSource(track1);
+    context1.createMediaElementSource(track1);
 
     window.context2 = new window.AudioContext;
-    window.src2 = context2.createMediaElementSource(track2);
+    context2.createMediaElementSource(track2);
 
     window.context3 = new window.AudioContext;
-    window.src3 = context3.createMediaElementSource(track3);
+    context3.createMediaElementSource(track3);
 
     window.context4 = new window.AudioContext;
-    window.src4 = context4.createMediaElementSource(track4);
+    context4.createMediaElementSource(track4);
 
     window.context5 = new window.AudioContext;
-    window.src5 = context5.createMediaElementSource(track5);
+    context5.createMediaElementSource(track5);
+
+    window.newTrack = false;
 });
 
 const togglePlayback = () => {
@@ -168,8 +170,8 @@ const panTracks = () => {
         panControl1.onclick = () => {
             panNode1.pan.value = panControl1.value;
         }
-        window.src1 = context1.createMediaElementSource(track1);
-        window.src1.connect(panNode1);
+        src1 = context1.createMediaElementSource(track1);
+        src1.connect(panNode1);
         panNode1.connect(context1.destination);    
 
         //TRACK 2
@@ -178,8 +180,8 @@ const panTracks = () => {
         panControl2.onclick = () => {
             panNode2.pan.value = panControl2.value;
         }
-        window.src2 = context2.createMediaElementSource(track2);
-        window.src2.connect(panNode2);
+        src2 = context2.createMediaElementSource(track2);
+        src2.connect(panNode2);
         panNode2.connect(context2.destination);
         
         //TRACK 3
@@ -188,8 +190,8 @@ const panTracks = () => {
         panControl3.onclick = () => {
             panNode3.pan.value = panControl3.value;
         }
-        window.src3 = context3.createMediaElementSource(track3);
-        window.src3.connect(panNode3);
+        src3 = context3.createMediaElementSource(track3);
+        src3.connect(panNode3);
         panNode3.connect(context3.destination);   
         
         //TRACK 4
@@ -198,8 +200,8 @@ const panTracks = () => {
         panControl4.onclick = () => {
             panNode4.pan.value = panControl4.value;
         }
-        window.src4 = context4.createMediaElementSource(track4);
-        window.src4.connect(panNode4);
+        src4 = context4.createMediaElementSource(track4);
+        src4.connect(panNode4);
         panNode4.connect(context4.destination);  
         
         //TRACK 5
@@ -208,8 +210,8 @@ const panTracks = () => {
         panControl5.onclick = () => {
             panNode5.pan.value = panControl5.value;
         }
-        window.src5 = context5.createMediaElementSource(track5);
-        window.src5.connect(panNode5);
+        src5 = context5.createMediaElementSource(track5);
+        src5.connect(panNode5);
         panNode5.connect(context5.destination);   
     }
 }
