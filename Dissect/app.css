@@ -114,7 +114,7 @@ p{
 }
 
 .toggle {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: left;
@@ -201,7 +201,7 @@ audio {
 }
 
 .input-wrapper {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }

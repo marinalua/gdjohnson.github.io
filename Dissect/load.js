@@ -141,9 +141,8 @@ const loadTracks = (event) => {
     resetTrack();
 }
 
-
-
 const resetTrack = () => {
     track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
     play.innerHTML = "Play"; play.id = "paused";
+    window.newTrack = true;
 }
