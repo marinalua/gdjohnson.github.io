@@ -110,7 +110,6 @@ p{
     border-radius: 0px;
     background: white;
     color: black;
-    margin-right: 25px;
     text-align: center;
 }
 
@@ -198,4 +197,17 @@ span[name="play"]{
 
 audio {
     width: 90%;
+    margin-left: 10px;
 }
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    margin: 0;
+    width: 50%;
+    transform: rotate(-90deg);
+  }
