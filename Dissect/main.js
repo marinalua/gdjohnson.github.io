@@ -1,4 +1,4 @@
-let play = document.getElementsByName("play")[0];
+play = document.getElementsByName("play")[0];
 
 const togglePlayback = () => {
     if (play.id === "paused"){
