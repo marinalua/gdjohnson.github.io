@@ -138,7 +138,14 @@ const loadTracks = (event) => {
         src5.src = "audio/Something (orchestral).mp3";
     }
 
-    resetTrack();
+    track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
+    
+    //Reset all pan sliders
+    Array.from(document.getElementsByClassName('input-wrapper')).forEach(
+        (wrapper) => {
+            wrapper.firstElementChild.value = 0;
+        }
+    )
 }
 
 const resetTrack = () => {
@@ -160,5 +167,5 @@ const resetTrack = () => {
     // )
 
     play.innerHTML = "Play"; play.id = "paused";
-    window.newTrack = true;
+    window.newTrack = false;
 }
