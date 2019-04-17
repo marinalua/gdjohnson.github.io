@@ -82,7 +82,7 @@ const solo = (track) => {
     }
 }
 
-const add = (event) =>{
+const add = (track) =>{
     if (track == "_1"){
         track1.muted = false;}
 
@@ -99,7 +99,7 @@ const add = (event) =>{
         track5.muted = false;}
 }
 
-const mute = (event) =>{
+const mute = (track) =>{
     if (track == "_1"){
         track1.muted = true;}
 

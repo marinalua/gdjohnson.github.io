@@ -30,8 +30,8 @@ const loadTracks = (event) => {
         //TRACK 2
         //Source & Context
         track2.parentElement.firstElementChild.innerHTML = "Bass";
-        context = new window.AudioContext;
         track2.firstChild.nextSibling.src = "audio/Don't Let Me Down (bass).mp3";
+        context = new window.AudioContext;
         src = context.createMediaElementSource(track2);
         //Panning & Connection
         panNode2 = context.createStereoPanner();
@@ -44,8 +44,8 @@ const loadTracks = (event) => {
         //TRACK 3
         //Source & Context
         track3.parentElement.firstElementChild.innerHTML = "Guitar";
-        context = new window.AudioContext;
         track3.firstChild.nextSibling.src = "audio/Don't Let Me Down (guitar).mp3";
+        context = new window.AudioContext;
         src = context.createMediaElementSource(track3);
         //Panning & Connection
         panNode3 = context.createStereoPanner();
@@ -58,8 +58,8 @@ const loadTracks = (event) => {
         //TRACK 4
         //Source & Context
         track4.parentElement.firstElementChild.innerHTML = "Vox";
-        context = new window.AudioContext;
         track4.firstChild.nextSibling.src = "audio/Don't Let Me Down (vox).mp3";
+        context = new window.AudioContext;
         src = context.createMediaElementSource(track4);
         //Panning & Connection
         panNode4 = context.createStereoPanner();
@@ -72,8 +72,8 @@ const loadTracks = (event) => {
         //TRACK 5
         //Source & Context
         track5.parentElement.firstElementChild.innerHTML = "Organ";
-        context = new window.AudioContext;
         track5.firstChild.nextSibling.src = "audio/Don't Let Me Down (organ).mp3";
+        context = new window.AudioContext;
         src = context.createMediaElementSource(track5);
         //Panning & Connection
         panNode5 = context.createStereoPanner();
@@ -87,6 +87,8 @@ const loadTracks = (event) => {
     // if (event.innerHTML == "Norwegian Wood"){
     //     track1.parentElement.firstElementChild.innerHTML = "Drums"
     //     track1.firstChild.nextSibling.src = "audio/Norwegian Wood (drums).mp3";
+    //     context = new window.AudioContext;
+    //     src = context.createMediaElementSource(track1);
     //     //Panning & Connection
     //     panNode = context.createStereoPanner();
     //     panControl = document.getElementById('panning-control-1')
@@ -96,8 +98,8 @@ const loadTracks = (event) => {
     //     panNode.connect(context.destination);    
 
     //     track2.parentElement.firstElementChild.innerHTML = "Bass"
+    //     track2firstChild.nextSibling.src = "audio/Norwegian Wood (bass).mp3";
     //     context = new window.AudioContext;
-    //     src = context.createMediaElementSource("audio/Norwegian Wood (bass).mp3");
     //     //Panning & Connection
     //     panNode = context.createStereoPanner();
     //     panControl = document.getElementById('panning-control-1')
