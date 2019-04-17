@@ -1,12 +1,12 @@
 export const track1 = document.getElementById('track-1');
-const track2 = document.getElementById('track-2');
-const track3 = document.getElementById('track-3');
-const track4 = document.getElementById('track-4');
-const track5 = document.getElementById('track-5');
+export const track2 = document.getElementById('track-2');
+export const track3 = document.getElementById('track-3');
+export const track4 = document.getElementById('track-4');
+export const track5 = document.getElementById('track-5');
 
-const play = document.getElementsByName("play")[0];
+export const play = document.getElementsByName("play")[0];
 
-const togglePlayback = () => {
+export const togglePlayback = () => {
     if (play.id === "paused"){
         setTimeout(() => {
             track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
@@ -22,12 +22,12 @@ const togglePlayback = () => {
     }
 }
 
-const resetTrack = () => {
+export const resetTrack = () => {
     track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
     play.innerHTML = "Play"; play.id = "paused";
 }
 
-const eventInterpreter = (event) => {
+export const eventInterpreter = (event) => {
     debugger
     const track = event.parentElement.parentElement.firstElementChild.id;
     const action = event.innerHTML;
@@ -88,7 +88,7 @@ export const solo = (track) => {
     }
 }
 
-const add = (event) =>{
+export const add = (event) =>{
     if (track == "_1"){
         track1.muted = false;}
 
@@ -105,7 +105,7 @@ const add = (event) =>{
         track5.muted = false;}
 }
 
-const mute = (event) =>{
+export const mute = (event) =>{
     if (track == "_1"){
         track1.muted = true;}
 
@@ -122,7 +122,7 @@ const mute = (event) =>{
         track5.muted = true;}
 }
 
-const loadTrack = (event) => {
+export const loadTrack = (event) => {
     debugger
     event.style.color = "green";
 
@@ -206,4 +206,5 @@ const loadTrack = (event) => {
 
     resetTrack();
 }
+
 

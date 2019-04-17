@@ -1,6 +1,6 @@
 import { solo, track1 } from 'main';
 
-const tourTrack = () => {
+export const tourTrack = () => {
     const src = track1.firstChild.nextSibling.src;
     if (src = "audio/Don't Let Me Down (drums).mp3"){
         setTimeout(() => solo(1), 4000);

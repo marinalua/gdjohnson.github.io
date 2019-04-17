@@ -1,9 +1,26 @@
 module.exports = {
     context: __dirname,
-    entry: "./main.js",
+    entry: {"s": "./main.js"},
     output: {
-      path: _dirname,
+      path: __dirname,
       filename: "bundle.js"
     },
-    devtool: 'source-map'
+    devtool: "eval-source-map",
+    target: 'node', 
+    externals: {
+        "request": "request" 
+    },
+    module: {
+        rules: [
+            {
+                test: [/\.jsx?$/],
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['@babel/env']
+                }
+            }
+        ]
+    },
+    resolve: { extensions: [".js", "*"]}
   };
