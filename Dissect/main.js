@@ -1,4 +1,4 @@
-const play = document.getElementsByName("play")[0];
+let play = document.getElementsByName("play")[0];
 
 const togglePlayback = () => {
     if (play.id === "paused"){
@@ -14,11 +14,6 @@ const togglePlayback = () => {
             play.id = "paused"}, 
             300);
     }
-}
-
-const resetTrack = () => {
-    track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
-    play.innerHTML = "Play"; play.id = "paused";
 }
 
 const eventInterpreter = (event) => {
