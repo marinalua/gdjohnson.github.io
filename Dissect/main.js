@@ -45,7 +45,7 @@ const eventInterpreter = (event) => {
     }
 }
 
-export const solo = (track) => {
+const solo = (track) => {
 
     if (track == "_1"){
         track1.muted = false;
@@ -88,7 +88,7 @@ export const solo = (track) => {
     }
 }
 
-export const add = (event) =>{
+const add = (event) =>{
     if (track == "_1"){
         track1.muted = false;}
 
@@ -105,7 +105,7 @@ export const add = (event) =>{
         track5.muted = false;}
 }
 
-export const mute = (event) =>{
+const mute = (event) =>{
     if (track == "_1"){
         track1.muted = true;}
 
@@ -207,4 +207,4 @@ const loadTrack = (event) => {
     resetTrack();
 }
 
-module.exports = { track1: track1 };
+module.exports = { track1: track1, solo: solo };
