@@ -1,5 +1,9 @@
 play = document.getElementsByName("play")[0];
 
+window.addEventListener('DOMContentLoaded', () => {
+    loadTracks({innerHTML: "Something"})
+});
+
 const togglePlayback = () => {
     if (play.id === "paused"){
         setTimeout(() => {
