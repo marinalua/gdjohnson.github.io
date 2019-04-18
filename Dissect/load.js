@@ -4,13 +4,19 @@ let track2 = document.getElementById('track-2');
 let track3 = document.getElementById('track-3');
 let track4 = document.getElementById('track-4');
 let track5 = document.getElementById('track-5');
+let tracks = [track1, track2, track3, track4, track5];
 
 
 
 const loadTracks = (event) => {
     let navLinks = document.getElementById('nav-bar-tracks').children
+    //  let navLinks = Array.from(document.getElementById('nav-bar-tracks').children)
+
     
     if (event.style){
+        //navLinks.forEach((link, idx) => { 
+        //  link[idx+1].style.color = "rgb(102, 102, 102)";
+        //})
         navLinks[1].style.color = "rgb(102, 102, 102)";
         navLinks[2].style.color = "rgb(102, 102, 102)";
         navLinks[3].style.color = "rgb(102, 102, 102)";
@@ -19,12 +25,14 @@ const loadTracks = (event) => {
     }
 
     if (track1) {
+        // tracks.forEach(track => {track.parentElement.removeChild(track)};)
         track1.parentElement.removeChild(track1)
         track2.parentElement.removeChild(track2)
         track3.parentElement.removeChild(track3)
         track4.parentElement.removeChild(track4)
         track5.parentElement.removeChild(track5)
     }
+
     track1 = new Audio();
     track1.id = "track-1";
     track1.controls = true;
@@ -40,7 +48,6 @@ const loadTracks = (event) => {
     src2.type = "audio/mpeg"
     track2.appendChild(src2);
     document.getElementById('_2').parentElement.append(track2)
-
 
     track3 = new Audio();
     track3.id = "track-3";
@@ -138,6 +145,11 @@ const loadTracks = (event) => {
         src5.src = "audio/Something (orchestral).mp3";
     }
 
+    play.innerHTML = "Play"; play.id = "paused";
+    helper();
+}
+
+const helper = () => {
     track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
     
     //Reset all pan sliders
@@ -149,14 +161,8 @@ const loadTracks = (event) => {
 }
 
 const resetTrack = () => {
-    track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
-    
-    //Reset all pan sliders
-    Array.from(document.getElementsByClassName('input-wrapper')).forEach(
-        (wrapper) => {
-            wrapper.firstElementChild.value = 0;
-        }
-    )
+    loadTracks({innerHTML: "Something"});
+    helper();
 
     // //Reset all control hide/show
     // Array.from(document.getElementsByClassName('track')).forEach(
@@ -165,7 +171,6 @@ const resetTrack = () => {
     //         track.children[2].style.display = "none";
     //     }
     // )
-
     play.innerHTML = "Play"; play.id = "paused";
     window.newTrack = false;
 }

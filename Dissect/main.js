@@ -60,6 +60,9 @@ const eventInterpreter = (event) => {
     const trackId = event.parentElement.parentElement.firstElementChild.id;
     const action = event.innerHTML;
 
+    // MAKE SURE TO TEST TRACK MUTING VIA THE SELECTOR BELOW vv
+    // const track = event.parentElement.parentElement.children[3];
+
     if (action == "Solo") {
         solo(trackId);
     } 
@@ -74,6 +77,20 @@ const eventInterpreter = (event) => {
 }
 
 const solo = (track) => {
+
+    // passing a track (event.parentElement.parentElement.children[3]) 
+    // instead of id into solo/add/mute, you can then mute all and selectively
+    // unmute the given track, DRY'ing up the code"
+    // tracks.forEach(track => { track.muted = true })
+    // selTrack.muted = false
+
+    // OR 
+    // track1.muted = true;
+    // track2.muted = true;
+    // track3.muted = true;
+    // track4.muted = true;
+    // track5.muted = true;
+    // track.muted = false
 
     if (track == "_1"){
         track1.muted = false;
@@ -117,6 +134,8 @@ const solo = (track) => {
 }
 
 const add = (track) =>{
+    //track.muted = false;
+
     if (track == "_1"){
         track1.muted = false;}
 
@@ -134,6 +153,7 @@ const add = (track) =>{
 }
 
 const mute = (track) =>{
+    //track.muted = true; 
     if (track == "_1"){
         track1.muted = true;}
 
