@@ -150,7 +150,7 @@ const loadTracks = (event) => {
 }
 
 const helper = () => {
-    track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
+    // track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
     
     //Reset all pan sliders
     Array.from(document.getElementsByClassName('input-wrapper')).forEach(
