@@ -4,19 +4,19 @@ window.addEventListener('DOMContentLoaded', () => {
     loadTracks({innerHTML: "Something"});
     // var context1; var context2; var context3; var context4; var context5;
     window.context1 = new window.AudioContext;
-    context1.createMediaElementSource(track1);
+    // context1.createMediaElementSource(track1);
 
     window.context2 = new window.AudioContext;
-    context2.createMediaElementSource(track2);
+    // context2.createMediaElementSource(track2);
 
     window.context3 = new window.AudioContext;
-    context3.createMediaElementSource(track3);
+    // context3.createMediaElementSource(track3);
 
     window.context4 = new window.AudioContext;
-    context4.createMediaElementSource(track4);
+    // context4.createMediaElementSource(track4);
 
     window.context5 = new window.AudioContext;
-    context5.createMediaElementSource(track5);
+    // context5.createMediaElementSource(track5);
 
     window.newTrack = false;
 });
