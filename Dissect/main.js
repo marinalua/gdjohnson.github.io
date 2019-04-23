@@ -1,7 +1,6 @@
 play = document.getElementsByName("play")[0];
 
 window.addEventListener('DOMContentLoaded', () => {
-    alert("Welcome to Dissect! Make sure all the tracks have buffered before pressing Play.");
     loadTracks({innerHTML: "Something"});
     // var context1; var context2; var context3; var context4; var context5;
     window.context1 = new window.AudioContext;
@@ -20,6 +19,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // context5.createMediaElementSource(track5);
 
     window.newTrack = false;
+    
+    alert("Welcome to Dissect! Make sure all the tracks have buffered before pressing Play.");
 });
 
 const togglePlayback = () => {
