@@ -28,13 +28,13 @@ const togglePlayback = () => {
         setTimeout(() => {
             panTracks();
             track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
-            play.innerHTML = "Pause"; 
+            play.innerHTML = "᜶ Pause"; 
             play.id = "playing"}, 
             300);
         } else {
             setTimeout(() => {
                 track1.pause(); track2.pause(); track3.pause(); track4.pause(); track5.pause();
-                play.innerHTML = "Play"; 
+                play.innerHTML = "► Play"; 
                 play.id = "paused"}, 
                 300);
             window.newTrack = false;
