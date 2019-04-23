@@ -29,7 +29,7 @@ const togglePlayback = () => {
         setTimeout(() => {
             panTracks();
             track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
-            play.innerHTML = "᜶ Pause"; 
+            play.innerHTML = "Ⅱ Pause"; 
             play.id = "playing"}, 
             300);
         } else {

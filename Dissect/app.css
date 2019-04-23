@@ -115,7 +115,9 @@ p{
 }
 
 #_1:hover, #_2:hover, #_3:hover, #_4:hover, #_5:hover {
-    color: grey;
+    color: rgb(116, 116, 116);
+    border: 1px solid green;
+    background: rgb(221, 221, 221)
 }
 
 .toggle {
