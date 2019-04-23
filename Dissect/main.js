@@ -58,7 +58,6 @@ const showControls = (event) => {
 }
 
 const eventInterpreter = (event) => {
-    debugger
     const trackId = event.parentElement.parentElement.firstElementChild.id;
     const action = event.innerHTML;
 
@@ -173,8 +172,6 @@ const mute = (track) =>{
 }
 
 const panTracks = () => {
-    debugger
-
     if (window.newTrack === false){
         context1.resume();
         context2.resume();
