@@ -57,117 +57,36 @@ const showControls = (event) => {
 
 const eventInterpreter = (event) => {
     debugger
-    const trackId = event.parentElement.parentElement.firstElementChild.id;
+    // const trackId = event.parentElement.parentElement.firstElementChild.id;
+    const track = event.parentElement.parentElement.children[3];
     const action = event.innerHTML;
 
     // MAKE SURE TO TEST TRACK MUTING VIA THE SELECTOR BELOW vv
-    // const track = event.parentElement.parentElement.children[3];
 
     if (action == "Solo") {
-        solo(trackId);
+        solo(track);
     } 
 
     if (action == "Add") {
-        add(trackId);
+        add(track);
     }
 
     if (action == "Mute") {
-        mute(trackId);
+        mute(track);
     }
 }
 
 const solo = (track) => {
-
-    // passing a track (event.parentElement.parentElement.children[3]) 
-    // instead of id into solo/add/mute, you can then mute all and selectively
-    // unmute the given track, DRY'ing up the code"
-    // tracks.forEach(track => { track.muted = true })
-    // selTrack.muted = false
-
-    // OR 
-    // track1.muted = true;
-    // track2.muted = true;
-    // track3.muted = true;
-    // track4.muted = true;
-    // track5.muted = true;
-    // track.muted = false
-
-    if (track == "_1"){
-        track1.muted = false;
-        track2.muted = true;
-        track3.muted = true;
-        track4.muted = true;
-        track5.muted = true;
-    }
-
-    if (track == "_2"){
-        track1.muted = true;
-        track2.muted = false;
-        track3.muted = true;
-        track4.muted = true;
-        track5.muted = true;
-    }
-
-    if (track == "_3"){
-        track1.muted = true;
-        track2.muted = true;
-        track3.muted = false;
-        track4.muted = true;
-        track5.muted = true;
-    }
-
-    if (track == "_4"){
-        track1.muted = true;
-        track2.muted = true;
-        track3.muted = true;
-        track4.muted = false;
-        track5.muted = true;
-    }
-
-    if (track == "_5"){
-        track1.muted = true;
-        track2.muted = true;
-        track3.muted = true;
-        track4.muted = true;
-        track5.muted = false;
-    }
+    tracks.forEach(track => { track.muted = true })
+    track.muted = false
 }
 
 const add = (track) =>{
-    //track.muted = false;
-
-    if (track == "_1"){
-        track1.muted = false;}
-
-    if (track == "_2"){
-        track2.muted = false;}
-
-    if (track == "_3"){
-        track3.muted = false;}
-
-    if (track == "_4"){
-        track4.muted = false;}
-
-    if (track == "_5"){
-        track5.muted = false;}
+    track.muted = false;
 }
 
 const mute = (track) =>{
-    //track.muted = true; 
-    if (track == "_1"){
-        track1.muted = true;}
-
-    if (track == "_2"){
-        track2.muted = true;}
-
-    if (track == "_3"){
-        track3.muted = true;}
-
-    if (track == "_4"){
-        track4.muted = true;}
-
-    if (track == "_5"){
-        track5.muted = true;}
+    track.muted = true; 
 }
 
 const panTracks = () => {

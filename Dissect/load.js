@@ -4,33 +4,29 @@ let track2 = document.getElementById('track-2');
 let track3 = document.getElementById('track-3');
 let track4 = document.getElementById('track-4');
 let track5 = document.getElementById('track-5');
-let tracks = [track1, track2, track3, track4, track5];
 
 
 
 const loadTracks = (event) => {
-    let navLinks = document.getElementById('nav-bar-tracks').children
-    //  let navLinks = Array.from(document.getElementById('nav-bar-tracks').children)
+    // let navLinks = document.getElementById('nav-bar-tracks').children
+    let navLinks = Array.from(document.getElementById('nav-bar-tracks').children).slice(1)
 
     
     if (event.style){
-        //navLinks.forEach((link, idx) => { 
-        //  link[idx+1].style.color = "rgb(102, 102, 102)";
-        //})
-        navLinks[1].style.color = "rgb(102, 102, 102)";
-        navLinks[2].style.color = "rgb(102, 102, 102)";
-        navLinks[3].style.color = "rgb(102, 102, 102)";
-        navLinks[4].style.color = "rgb(102, 102, 102)";
+        navLinks.forEach((link, idx) => { 
+            debugger
+         link.style.color = "rgb(102, 102, 102)";
+        })
         event.style.color = "green";
     }
 
     if (track1) {
-        // tracks.forEach(track => {track.parentElement.removeChild(track)};)
-        track1.parentElement.removeChild(track1)
-        track2.parentElement.removeChild(track2)
-        track3.parentElement.removeChild(track3)
-        track4.parentElement.removeChild(track4)
-        track5.parentElement.removeChild(track5)
+        tracks.forEach(track => {track.parentElement.removeChild(track)})
+        // track1.parentElement.removeChild(track1)
+        // track2.parentElement.removeChild(track2)
+        // track3.parentElement.removeChild(track3)
+        // track4.parentElement.removeChild(track4)
+        // track5.parentElement.removeChild(track5)
     }
 
     track1 = new Audio();
@@ -145,6 +141,8 @@ const loadTracks = (event) => {
         src5.src = "audio/Something (orchestral).mp3";
     }
 
+    window.tracks = [track1, track2, track3, track4, track5];
+
     play.innerHTML = "Play"; play.id = "paused";
     helper();
 }
@@ -164,13 +162,13 @@ const resetTrack = () => {
     loadTracks({innerHTML: "Something"});
     helper();
 
-    // //Reset all control hide/show
-    // Array.from(document.getElementsByClassName('track')).forEach(
-    //     (track) => {
-    //         track.children[1].style.display = "none";
-    //         track.children[2].style.display = "none";
-    //     }
-    // )
+    //Reset all control hide/show
+    Array.from(document.getElementsByClassName('track')).forEach(
+        (track) => {
+            track.children[1].style.display = "none";
+            track.children[2].style.display = "none";
+        }
+    )
     play.innerHTML = "Play"; play.id = "paused";
     window.newTrack = false;
 }
