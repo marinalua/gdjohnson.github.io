@@ -59,13 +59,7 @@ const showControls = (event) => {
 }
 
 const eventInterpreter = (event) => {
-<<<<<<< HEAD
-    debugger
-    // const trackId = event.parentElement.parentElement.firstElementChild.id;
     const track = event.parentElement.parentElement.children[3];
-=======
-    const trackId = event.parentElement.parentElement.firstElementChild.id;
->>>>>>> origin
     const action = event.innerHTML;
 
     // MAKE SURE TO TEST TRACK MUTING VIA THE SELECTOR BELOW vv
