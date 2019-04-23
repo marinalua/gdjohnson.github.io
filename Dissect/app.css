@@ -111,6 +111,11 @@ p{
     background: white;
     color: black;
     text-align: center;
+    cursor: pointer;
+}
+
+#_1:hover, #_2:hover, #_3:hover, #_4:hover, #_5:hover {
+    color: grey;
 }
 
 .toggle {
@@ -179,7 +184,7 @@ span[name="play"]{
     font-size: 28px;
     font-weight: 550;
     cursor: pointer;
-    width: 60px;
+    width: 120px;
 }
 
 #playing:hover{
