@@ -73,7 +73,6 @@ const loadTracks = (event) => {
 
 
     if (event.innerHTML == "Don't Let Me Down"){
-        debugger
         track1.parentElement.firstElementChild.innerHTML = "Drums";
         src1.src = "audio/Don't Let Me Down (drums).mp3"
 

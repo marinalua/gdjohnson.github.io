@@ -2,6 +2,8 @@ play = document.getElementsByName("play")[0];
 
 window.addEventListener('DOMContentLoaded', () => {
     loadTracks({innerHTML: "Something"});
+    setTimeout(() => { alert("Welcome to Dissect! Make sure all the tracks have buffered before pressing Play."); }, 1);
+
     // var context1; var context2; var context3; var context4; var context5;
     window.context1 = new window.AudioContext;
     // context1.createMediaElementSource(track1);
@@ -19,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // context5.createMediaElementSource(track5);
 
     window.newTrack = false;
+    
 });
 
 const togglePlayback = () => {
@@ -26,13 +29,13 @@ const togglePlayback = () => {
         setTimeout(() => {
             panTracks();
             track1.play(); track2.play(); track3.play(); track4.play(); track5.play();
-            play.innerHTML = "Pause"; 
+            play.innerHTML = "᜶ Pause"; 
             play.id = "playing"}, 
             300);
         } else {
             setTimeout(() => {
                 track1.pause(); track2.pause(); track3.pause(); track4.pause(); track5.pause();
-                play.innerHTML = "Play"; 
+                play.innerHTML = "► Play"; 
                 play.id = "paused"}, 
                 300);
             window.newTrack = false;
@@ -56,9 +59,13 @@ const showControls = (event) => {
 }
 
 const eventInterpreter = (event) => {
+<<<<<<< HEAD
     debugger
     // const trackId = event.parentElement.parentElement.firstElementChild.id;
     const track = event.parentElement.parentElement.children[3];
+=======
+    const trackId = event.parentElement.parentElement.firstElementChild.id;
+>>>>>>> origin
     const action = event.innerHTML;
 
     // MAKE SURE TO TEST TRACK MUTING VIA THE SELECTOR BELOW vv
@@ -90,8 +97,6 @@ const mute = (track) =>{
 }
 
 const panTracks = () => {
-    debugger
-
     if (window.newTrack === false){
         context1.resume();
         context2.resume();
