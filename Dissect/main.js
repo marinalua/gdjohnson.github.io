@@ -2,6 +2,8 @@ play = document.getElementsByName("play")[0];
 
 window.addEventListener('DOMContentLoaded', () => {
     loadTracks({innerHTML: "Something"});
+    setTimeout(() => { alert("Welcome to Dissect! Make sure all the tracks have buffered before pressing Play."); }, 1);
+
     // var context1; var context2; var context3; var context4; var context5;
     window.context1 = new window.AudioContext;
     // context1.createMediaElementSource(track1);
@@ -20,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.newTrack = false;
     
-    alert("Welcome to Dissect! Make sure all the tracks have buffered before pressing Play.");
 });
 
 const togglePlayback = () => {
