@@ -11,6 +11,11 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
+h1 {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
 blockquote {
   margin: 0;
   padding: 0 0 0 1em;
