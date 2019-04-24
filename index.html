@@ -5,14 +5,14 @@
 	<script>
 	const hover = (e) => { 
 		debugger
-		const ref = e.firstChild.href.slice(9);
+		const ref = e.firstChild.href.slice(29);
 		const el = document.getElementById(ref)
 		el.style.color = "white";
 		el.style.background = "black";
 	}
 
 	const hoverOff = (e) => { 
-		const ref = e.firstChild.href.slice(9);
+		const ref = e.firstChild.href.slice(29);
 		const el = document.getElementById(ref)
 		el.style.color = "black";
 		el.style.background = "white";
