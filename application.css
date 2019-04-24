@@ -3,8 +3,7 @@ html {
 }
 
 body {
-  margin: 2em;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 h1, h4 {
@@ -39,7 +38,8 @@ img {
   margin: 1em 0;
   max-width: 100%;
 }
-  a img {
+
+a img {
     border: 2px solid;
-  }
+}
   
