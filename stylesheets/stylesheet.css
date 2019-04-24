@@ -167,6 +167,10 @@ ol, ul {
   padding-right: 25px;
 }
 
-#pdf-marketplace, #random {
-  margin-top: 10px;
+#pdf-marketplace {
+  margin-top: 7px;
+}
+
+#random {
+  margin-top: 14px;
 }
