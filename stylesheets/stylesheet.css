@@ -48,12 +48,53 @@ body {
   padding: 59px 100px;
 }
 
+#n-s-nav:hover ~ #non-software {
+  background: black;
+  color: white;
+}
+
+#intro {
+  display: flex;
+  justify-content: left;
+}
+
+#header-name {
+  width: 200px;
+  height: auto;
+  padding-top: 0px;
+}
+
+#hcol-1 {
+  padding-right: 25px;
+  width: 20%;
+}
+
+#hcol-2 {
+  width: 60%;
+  padding-left: 15px;
+}
+
+.nav-li {
+  display: flex;
+  justify-content: left;
+}
+
+.nav-li > li {
+  padding-right: 5px;
+}
+
+article {
+  display: flex;
+}
+
 #col-1 {
   padding-right: 40px;
+  width: 90%
 }
 
 #col-2 {
   padding-left: 40px;
+  width: 90%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -110,4 +151,12 @@ ol, ul {
   padding-top: 5px;
   padding-bottom: 5px;
 
+}
+
+#friends-wrap {
+  display: flex;
+}
+
+.friends {
+  padding-right: 25px;
 }
