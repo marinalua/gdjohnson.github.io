@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="app.css">
 
-    <title>Document</title>
+    <title>D I S S E C T</title>
 
 </head>
 <body>
-    <div id="bs">
+<div id="bs">
 
     <div id="header">
         <h1>Dissect</h1><h3 name="track-title"></h3>
@@ -19,91 +19,136 @@
             <a href="https://github.com/gdjohnson/dissect">Github</a>
         </div>
     </div>
+
     <div id="main"> 
         <div id="nav-bar">
             <div id="nav-bar-tracks">
                 <h3>Tracks</h3>
-                <a onclick="loadTracks(this);">Don't Let Me Down</a>
-                <a onclick="loadTracks(this);">Lucy in the Sky with Diamonds</a>
-                <a onclick="loadTracks(this);">Norwegian Wood</a>
-                <a onclick="loadTracks(this);">Something</a>
+                <a onmouseup="loadTracks(this);">Don't Let Me Down</a>
+                <a onmouseup="loadTracks(this);">Lucy in the Sky with Diamonds</a>
+                <a onmouseup="loadTracks(this);">Norwegian Wood</a>
+                <a onmouseup="loadTracks(this);">Something</a>
             </div>
             <div id="nav-bar-current">
                 <h3>Current</h3>
-                <a onclick="resetTrack();">Reset</a>
-                <a onclick="tourTrack();">Tour Track</a>
+                <a id="reset">Reset</a>
+                <a id="tour">Tour Track</a>
             </div>
         </div>
         
         <div id="tracks-player">
-            <span name="play" id="paused" onclick="togglePlayback();">► Play</span>
+            <span name="play" id="paused" onmouseup="togglePlayback();">► Play</span>
             
-            <div class="track">
-                <button id="_1" onmouseup="showControls(this)">Drums</button>
-                <div class="input-wrapper">
-                    <input id="panning-control-1" type="range" min="-1" max="1" step="0.1" value="0">
+            <div id="controls-guide">
+                    <button id="tog-guide" class="track-guide">Tog</button>
+                    <button id="vol-guide" class="track-guide">Vol</button>
+                    <button id="pan-guide" class="track-guide">Pan</button>
+                    <button id="dist-guide" class="track-guide">Distortion</button>
+                    <button id="rev-guide" class="track-guide">Reverb</button>
                 </div>
-                <div class="toggle">
-                    <button class="solo" onclick="eventInterpreter(this);">Solo</button>
-                    <button class="add" onclick="eventInterpreter(this);">Add</button>
-                    <button class="mute" onclick="eventInterpreter(this);">Mute</button>
+
+            <div class="track" id="track-0">
+                <button class="show-controls">Drums</button>
+                <div class="controls">
+                    <div class="toggle">
+                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
+                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
+                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input title="Volume" id="t0-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input title="Pan" id="t0-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input title="Distortion" id="t0-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input title="Reverb Time" id="t0-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input title="Reverb Decay" id="t0-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input title="ReverbMix" id="t0-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
+                    </div>
                 </div>
             </div>
                 
-            <div class="track">
-                <button id="_2" onmouseup="showControls(this)">Bass</button>
-                <div class="input-wrapper">
-                    <input id="panning-control-2" type="range" min="-1" max="1" step="0.1" value="0">
-                </div>
-                <div class="toggle">
-                    <button class="solo" onclick="eventInterpreter(this);">Solo</button>
-                    <button class="add" onclick="eventInterpreter(this);">Add</button>
-                    <button class="mute" onclick="eventInterpreter(this);">Mute</button>
-                </div>
-            </div>
-
-            <div class="track">
-                <button id="_3" onmouseup="showControls(this)">Guitar</button>
-                <div class="input-wrapper">
-                    <input id="panning-control-3" type="range" min="-1" max="1" step="0.1" value="0">
-                </div>
-                <div class="toggle">
-                    <button class="solo" onclick="eventInterpreter(this);">Solo</button>
-                    <button class="add" onclick="eventInterpreter(this);">Add</button>
-                    <button class="mute" onclick="eventInterpreter(this);">Mute</button>
-                </div>
-            </div>
-
-            <div class="track">
-                    <button id="_4" onmouseup="showControls(this)">Vox</button>
-                    <div class="input-wrapper">
-                        <input id="panning-control-4" type="range" min="-1" max="1" step="0.1" value="0">
-                    </div>
+            <div class="track" id="track-1">
+                <button class="show-controls">Bass</button>
+                <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onclick="eventInterpreter(this);">Solo</button>
-                        <button class="add" onclick="eventInterpreter(this);">Add</button>
-                        <button class="mute" onclick="eventInterpreter(this);">Mute</button>
+                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
+                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
+                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input id="t1-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t1-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t1-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t1-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t1-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t1-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
                     </div>
                 </div>
-            
-            <div class="track">
-                <button id="_5" onmouseup="showControls(this)">Organ + Strings</button>
-                <div class="input-wrapper">
-                    <input id="panning-control-5" type="range" min="-1" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="track" id="track-2">
+                <button class="show-controls">Guitar</button>
+                <div class="controls">
+                    <div class="toggle">
+                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
+                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
+                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input id="t2-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t2-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t2-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t2-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t2-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t2-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
+                    </div>
                 </div>
-                <div class="toggle">
-                    <button class="solo" onclick="eventInterpreter(this);">Solo</button>
-                    <button class="add" onclick="eventInterpreter(this);">Add</button>
-                    <button class="mute" onclick="eventInterpreter(this);">Mute</button>
+            </div>
+
+            <div class="track" id="track-3">
+                <button class="show-controls">Vox</button>
+                <div class="controls">
+                    <div class="toggle">
+                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
+                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
+                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input id="t3-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t3-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t3-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t3-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t3-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t3-reverb-mix" type="range" min="0" max="1" step="0.1" value="0"> 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="track" id="track-4">
+                <button class="show-controls">Organ + Strings</button>
+                <div class="controls">
+                    <div class="toggle">
+                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
+                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
+                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input id="t4-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t4-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t4-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t4-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t4-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t4-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-    </div>
+</div>
 </body>
 <script src="./load.js"></script>
 <script src="./main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
 
 
 </html>

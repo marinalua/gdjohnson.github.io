@@ -1,173 +1,223 @@
+let track0;
+let track1;
+let track2;
+let track3;
+let track4;
+let tracks;
+
+let songEffects = [];
+
+let latest;
 let play = document.getElementsByName("play")[0];
-let track1 = document.getElementById('track-1');
-let track2 = document.getElementById('track-2');
-let track3 = document.getElementById('track-3');
-let track4 = document.getElementById('track-4');
-let track5 = document.getElementById('track-5');
+
+window.addEventListener('DOMContentLoaded', () => {
+    loadTracks({innerHTML: "Something", style: true});
+    document.getElementById('reset').addEventListener('click', resetTrack);
+    // document.getElementById('reset').addEventListener('click', tourTrack);
+});
+
+const togglePlayback = () => {
+    if (play.id === "paused"){
+        setTimeout(() => {
+            tracks.forEach(track => { track.play(); })
+            play.innerHTML = "Ⅱ Pause"; 
+            play.id = "playing"}, 
+            100);
+        } else {
+        setTimeout(() => {
+            tracks.forEach(track => { track.pause(); })
+            play.innerHTML = "► Play"; 
+            play.id = "paused"}, 
+            100);
+    }
+}
+
+const eventInterpreter = (event) => {
+    const track = tracks[parseInt(event.parentElement.parentElement.parentElement.id.slice(6))];
+    const action = event.innerHTML;
+
+    if (action == "Solo") {
+        solo(track);
+    } 
+
+    if (action == "Add") {
+        add(track);
+    }
+
+    if (action == "Mute") {
+        mute(track);
+    }
+}
+
+const solo = (fTrack) => {
+    tracks.forEach(track => { 
+        if (track !== fTrack) {
+            track.volume = 0 } 
+        });
+
+        debugger
+        if (fTrack.volume == 0) {
+            fTrack.volume = .7;
+        }
+}
+
+const add = (track) =>{
+    track.volume = 1;
+}
+
+const mute = (track) =>{
+    track.volume = 0; 
+}
+
+
 
 
 
 const loadTracks = (event) => {
-    // let navLinks = document.getElementById('nav-bar-tracks').children
-    let navLinks = Array.from(document.getElementById('nav-bar-tracks').children).slice(1)
+    latest = event;
 
-    
+    styleNav(event);
+    populateAudio(event);
+    addEffects();
+    addListeners();
+}
+
+const styleNav = (event) => {
+    const navLinks = Array.from(document.getElementById('nav-bar-tracks').children).slice(1)
+
     if (event.style){
-        navLinks.forEach((link, idx) => { 
-            debugger
-         link.style.color = "rgb(102, 102, 102)";
-        })
+        navLinks.forEach(link => { link.style.color = "rgb(102, 102, 102)";})
         event.style.color = "green";
     }
+}
 
-    if (track1) {
-        tracks.forEach(track => {track.parentElement.removeChild(track)})
-        // track1.parentElement.removeChild(track1)
-        // track2.parentElement.removeChild(track2)
-        // track3.parentElement.removeChild(track3)
-        // track4.parentElement.removeChild(track4)
-        // track5.parentElement.removeChild(track5)
+const populateAudio = (event) => {
+    const eles = []
+    for (i=0; i<5; i++) {
+        eles.push(document.getElementById(`track-${i}`).firstElementChild)
     }
-
-    track1 = new Audio();
-    track1.id = "track-1";
-    track1.controls = true;
-    src1 = document.createElement('source');
-    src1.type = "audio/mpeg"
-    track1.appendChild(src1);
-    document.getElementById('_1').parentElement.append(track1)
-
-    track2 = new Audio();
-    track2.id = "track-2";
-    track2.controls = true;
-    src2 = document.createElement('source');
-    src2.type = "audio/mpeg"
-    track2.appendChild(src2);
-    document.getElementById('_2').parentElement.append(track2)
-
-    track3 = new Audio();
-    track3.id = "track-3";
-    track3.controls = true;
-    src3 = document.createElement('source');
-    src3.type = "audio/mpeg"
-    track3.appendChild(src3);
-    document.getElementById('_3').parentElement.append(track3)
-
-
-    track4 = new Audio();
-    track4.id = "track-4";
-    track4.controls = true;
-    src4 = document.createElement('source');
-    src4.type = "audio/mpeg"
-    track4.appendChild(src4);
-    document.getElementById('_4').parentElement.append(track4)
-
-
-    track5 = new Audio();
-    track5.id = "track-5";
-    track5.controls = true;
-    src5 = document.createElement('source');
-    src5.type = "audio/mpeg"
-    track5.appendChild(src5);
-    document.getElementById('_5').parentElement.append(track5)
-
 
     if (event.innerHTML == "Don't Let Me Down"){
-        track1.parentElement.firstElementChild.innerHTML = "Drums";
-        src1.src = "audio/Don't Let Me Down (drums).mp3"
+        track0 = new Pizzicato.Sound(`./audio/Don't Let Me Down (drums).mp3`);
+        track1 = new Pizzicato.Sound(`./audio/Don't Let Me Down (bass).mp3`);
+        track2 = new Pizzicato.Sound(`./audio/Don't Let Me Down (guitar).mp3`);
+        track3 = new Pizzicato.Sound(`./audio/Don't Let Me Down (vox).mp3`);
+        track4 = new Pizzicato.Sound(`./audio/Don't Let Me Down (organ).mp3`);
 
-        track2.parentElement.firstElementChild.innerHTML = "Bass";
-        src2.src = "audio/Don't Let Me Down (bass).mp3";
-        
-        track3.parentElement.firstElementChild.innerHTML = "Guitar";
-        src3.src = "audio/Don't Let Me Down (guitar).mp3";
-
-        track4.parentElement.firstElementChild.innerHTML = "Vox";
-        src4.src = "audio/Don't Let Me Down (vox).mp3";
-        
-        track5.parentElement.firstElementChild.innerHTML = "Organ";
-        src5.src = "audio/Don't Let Me Down (organ).mp3"; 
-    }
-
-    if (event.innerHTML == "Norwegian Wood"){
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-        src1.src = "audio/Norwegian Wood (drums).mp3";
- 
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-        src2.src = "audio/Norwegian Wood (bass).mp3";
-  
-        track3.parentElement.firstElementChild.innerHTML = "Sitar"
-        src3.src = "audio/Norwegian Wood (sitar).mp3";
-  
-        track4.parentElement.firstElementChild.innerHTML = "Vox + Acoustic"
-        src4.src = "audio/Norwegian Wood (vox + guitar).mp3";
-        
-        track5.parentElement.firstElementChild.innerHTML = "Count"
-        src5.src = "audio/Norwegian Wood (count).mp3";
+        eles[0].innerHTML = "Drums";
+        eles[1].innerHTML = "Bass";
+        eles[2].innerHTML = "Guitar";
+        eles[3].innerHTML = "Vox";
+        eles[4].innerHTML = "Organ";
     }
 
     if (event.innerHTML == "Lucy in the Sky with Diamonds"){
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-        src1.src = "audio/Lucy (drums).mp3";
+        track0 = new Pizzicato.Sound(`./audio/Lucy (drums).mp3`);
+        track1 = new Pizzicato.Sound(`./audio/Lucy (bass).mp3`);
+        track2 = new Pizzicato.Sound(`./audio/Lucy (organ).mp3`);
+        track3 = new Pizzicato.Sound(`./audio/Lucy (vox).mp3`);
+        track4 = new Pizzicato.Sound(`./audio/Lucy (acoustic + organ).mp3`);
 
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-        src2.src = "audio/Lucy (bass).mp3"; 
+        eles[0].innerHTML = "Drums";
+        eles[1].innerHTML = "Bass";
+        eles[2].innerHTML = "Lowrey Organ";
+        eles[3].innerHTML = "Vox";
+        eles[4].innerHTML = "Acoustic + Organ";
+    }
 
-        track3.parentElement.firstElementChild.innerHTML = "Lowrey Organ"
-        src3.src = "audio/Lucy (organ).mp3";
+    if (event.innerHTML == "Norwegian Wood"){
+        track0 = new Pizzicato.Sound(`./audio/Norwegian Wood (drums).mp3`);
+        track1 = new Pizzicato.Sound(`./audio/Norwegian Wood (bass).mp3`);
+        track2 = new Pizzicato.Sound(`./audio/Norwegian Wood (sitar).mp3`);
+        track3 = new Pizzicato.Sound(`./audio/Norwegian Wood (vox + guitar)`);
+        track4 = new Pizzicato.Sound(`./audio/Norwegian Wood (count).mp3`);
 
-        track4.parentElement.firstElementChild.innerHTML = "Vox"
-        src4.src = "audio/Lucy (vox).mp3";
-
-        track5.parentElement.firstElementChild.innerHTML = "Acoustic + Organ"
-        src5.src = "audio/Lucy (acoustic + organ).mp3";
+        eles[0].innerHTML = "Drums";
+        eles[1].innerHTML = "Bass";
+        eles[2].innerHTML = "Sitar";
+        eles[3].innerHTML = "Vox + Guitar";
+        eles[4].innerHTML = "Count";
     }
 
     if (event.innerHTML == "Something"){
-        track1.parentElement.firstElementChild.innerHTML = "Drums"
-        src1.src = "audio/Something (drums).mp3";
+        track0 = new Pizzicato.Sound(`./audio/Something (drums).mp3`);
+        track1 = new Pizzicato.Sound(`./audio/Something (bass).mp3`);
+        track2 = new Pizzicato.Sound(`./audio/Something (guitar).mp3`);
+        track3 = new Pizzicato.Sound(`./audio/Something (vox).mp3`);
+        track4 = new Pizzicato.Sound(`./audio/Something (orchestral).mp3`);
 
-        track2.parentElement.firstElementChild.innerHTML = "Bass"
-        src2.src = "audio/Something (bass).mp3";
-
-        track3.parentElement.firstElementChild.innerHTML = "Guitar"
-        src3.src = "audio/Something (guitar).mp3";
-
-        track4.parentElement.firstElementChild.innerHTML = "Vox"
-        src4.src = "audio/Something (vox).mp3";
-
-        track5.parentElement.firstElementChild.innerHTML = "Strings + Organ"
-        src5.src = "audio/Something (orchestral).mp3";
+        eles[0].innerHTML = "Drums";
+        eles[1].innerHTML = "Bass";
+        eles[2].innerHTML = "Guitar";
+        eles[3].innerHTML = "Vox";
+        eles[4].innerHTML = "Strings + Organ";
     }
 
-    window.tracks = [track1, track2, track3, track4, track5];
+    tracks = [track0, track1, track2, track3, track4];
 
-    play.innerHTML = "Play"; play.id = "paused";
-    helper();
 }
 
-const helper = () => {
-    // track1.load(); track2.load(); track3.load(); track4.load(); track5.load();
+const addEffects = () => {
+    tracks = tracks.map((track, idx) => {
+        const reverb = new Pizzicato.Effects.Reverb({time: 0, decay: 0, mix: 0});
+        const distortion = new Pizzicato.Effects.Distortion({gain: 0});
+        const pan = new Pizzicato.Effects.StereoPanner({pan: 0.0 });
+
+        songEffects.push({reverb, distortion, pan});
+
+        track.addEffect(songEffects[idx].reverb);
+        track.addEffect(songEffects[idx].distortion);
+        track.addEffect(songEffects[idx].pan);
+
+        return track;
+    })
+}
+
+const addListeners = () => {
+    tracks.forEach((track, idx) => {
+        document.getElementById(`t${idx}-vol`).addEventListener('mouseup', (e) => {
+            debugger
+            track.volume = e.target.valueAsNumber;})
+
+        document.getElementById(`t${idx}-reverb-time`).addEventListener('mouseup', (e) => {
+            debugger
+            songEffects[idx].reverb.time = e.target.valueAsNumber;})
+
+        document.getElementById(`t${idx}-reverb-decay`).addEventListener('mouseup', (e) => {
+            debugger
+            songEffects[idx].reverb.decay = e.target.valueAsNumber;})
+
+        document.getElementById(`t${idx}-reverb-mix`).addEventListener('mouseup', (e) => {
+            debugger
+            songEffects[idx].reverb.mix= e.target.valueAsNumber;})
+
+        document.getElementById(`t${idx}-dist-gain`).addEventListener('mouseup', (e) => {
+            debugger
+            songEffects[idx].distortion.gain = e.target.valueAsNumber;})
+
+        document.getElementById(`t${idx}-pan`).addEventListener('mouseup', (e) => {
+            debugger
+            songEffects[idx].pan.pan = e.target.valueAsNumber;})
+        })
+}
+
     
-    //Reset all pan sliders
-    Array.from(document.getElementsByClassName('input-wrapper')).forEach(
-        (wrapper) => {
-            wrapper.firstElementChild.value = 0;
-        }
-    )
-}
-
 const resetTrack = () => {
-    loadTracks({innerHTML: "Something"});
-    helper();
+    tracks.forEach(track => { track.stop(); })
+    loadTracks(latest);
 
-    //Reset all control hide/show
-    Array.from(document.getElementsByClassName('track')).forEach(
-        (track) => {
-            track.children[1].style.display = "none";
-            track.children[2].style.display = "none";
-        }
-    )
+    // Array.from(document.getElementsByClassName('input-wrapper')).forEach(
+    //     wrapper => {
+    //         Array.from(wrapper.children).forEach(
+    //             input => {
+    //                 debugger
+    //                 if (input.id.slice(3) == "vol") { input.value = "0.7" }
+    //                 else if (input.id.slice(3) == "reverb-time") { input.value = ".01" }
+    //                 else { input.value = "0" };
+    //             }
+    //         )
+    //     }
+    // )
+
     play.innerHTML = "Play"; play.id = "paused";
-    window.newTrack = false;
 }

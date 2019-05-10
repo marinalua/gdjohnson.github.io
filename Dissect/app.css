@@ -68,6 +68,9 @@ p{
     font-size: 20px;
 }
 
+
+/* NAV BAR */
+
 #nav-bar{
     display: flex;
     flex-direction: column;
@@ -96,15 +99,24 @@ p{
     color: green;
 }
 
+
+/* TRACKS */
+
 #tracks-player{
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 610px;
     border: 1px solid black;
     padding: 32px;
 }
 
-#_1, #_2, #_3, #_4, #_5 {
+.track{
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: space-between;
+}
+
+.show-controls {
     width: 75px;
     border: 1px solid black;
     border-radius: 0px;
@@ -114,18 +126,29 @@ p{
     cursor: pointer;
 }
 
-#_1:hover, #_2:hover, #_3:hover, #_4:hover, #_5:hover {
-    color: rgb(116, 116, 116);
-    border: 1px solid green;
-    background: rgb(221, 221, 221)
+.controls {
+    display: flex;
 }
 
 .toggle {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
-    padding-right: 25px;
+    align-items: flex-start;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type="range"] {
+    margin: 0;
+    width: 10%;
+    transform: rotate(-90deg);
 }
 
 .solo {
@@ -181,7 +204,7 @@ button:hover{
 }
 
 span[name="play"]{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     font-style: italic;
     font-size: 28px;
     font-weight: 550;
@@ -197,25 +220,37 @@ span[name="play"]{
     color: green;
 }
 
-.track {
-    display: flex;
-    padding-bottom: 30px;
-}
 
 audio {
     width: 90%;
     margin-left: 10px;
 }
 
-.input-wrapper {
-    display: none;
-    align-items: center;
-    justify-content: center;
+
+/* Bottom Controls Guide */
+
+#controls-guide{
+    left: 70px;
+    padding-bottom: 20px;
+    position: relative;
 }
 
-input {
-    margin: 0;
-    width: 50%;
-    transform: rotate(-90deg);
-  }
+.track-guide {
+    width: 70px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 0px;
+    background: white;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+}
 
+#tog-guide {
+    width: 40px;
+}
+
+#rev-guide {
+    width: 250px;
+}
