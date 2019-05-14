@@ -29,11 +29,26 @@ a, p{
     align-items: flex-end;
 }
 
+#header-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
 h1{
     font-size: 50px;
     font-weight: 800;
     letter-spacing: 10px; 
     margin-bottom: 8px;
+}
+
+#track-title {
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 1px; 
+    margin-bottom: 8px;
+    margin-left: 14px;
+    font-style: italic;
+    color: green;
 }
 
 #self-promotion{
@@ -61,7 +76,6 @@ h3{
     margin-bottom: 14px;
     margin-top: 14px;
     font-family: serif;
-    font-style: italic;
 }
 
 p{
@@ -89,13 +103,13 @@ p{
 #nav-bar a {
     color: rgb(102, 102, 102);
     text-decoration: none;
-    padding-left: 12px;
-    padding-bottom: 2px;
+    padding: 3px 5px 3px 5px;
+    margin: 1px;
     font-size: 18px;
     cursor: pointer;
 }
 
-#nav-bar-tracks > a:hover, #nav-bar-current > a:hover, a:hover{
+#nav-bar a:hover {
     color: green;
 }
 
@@ -203,11 +217,11 @@ button:hover{
     color: red;
 }
 
-span[name="play"]{
+.playback {
     padding-bottom: 20px;
     font-style: italic;
     font-size: 28px;
-    font-weight: 550;
+    font-weight: 600;
     cursor: pointer;
     width: 120px;
 }
@@ -254,3 +268,58 @@ audio {
 #rev-guide {
     width: 250px;
 }
+
+/* Loader */
+
+#loading-wrap {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+#loading-wrap i {
+    margin-left: 15px;
+    color: #666666;
+    font-size: 28px;
+}
+
+#loader {
+    border: 5px solid #f2f2f2;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+    0%   {border-top: 5px solid #b3b3b3;}
+    10%  {border-top: 5px solid #999999;}
+    20%  {border-top: 5px solid #808080;}
+    30%  {border-top: 5px solid #737373;}
+    40%  {border-top: 5px solid #595959;}
+    50%  {border-top: 5px solid #404040;}
+    60%  {border-top: 5px solid #595959;}
+    70%  {border-top: 5px solid #737373;}
+    80%  {border-top: 5px solid #808080;}
+    90%  {border-top: 5px solid #999999;}
+    100% {border-top: 5px solid #b3b3b3;}
+  }
+  
+  @keyframes spin {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+    0%   {border-top: 6px solid #b3b3b3;}
+    10%  {border-top: 6px solid #999999;}
+    20%  {border-top: 6px solid #808080;}
+    30%  {border-top: 6px solid #737373;}
+    40%  {border-top: 6px solid #595959;}
+    50%  {border-top: 6px solid #404040;}
+    60%  {border-top: 6px solid #595959;}
+    70%  {border-top: 6px solid #737373;}
+    80%  {border-top: 6px solid #808080;}
+    90%  {border-top: 6px solid #999999;}
+    100% {border-top: 6px solid #b3b3b3;}
+  }

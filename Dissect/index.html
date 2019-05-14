@@ -13,7 +13,10 @@
 <div id="bs">
 
     <div id="header">
-        <h1>Dissect</h1><h3 name="track-title"></h3>
+        <div id="header-left">
+            <h1>Dissect:</h1>
+            <h1 id="track-title"></h1>
+        </div>
         <div id="self-promotion">
             <a href="https://gdjohnson.github.io">Website</a>
             <a href="https://github.com/gdjohnson/dissect">Github</a>
@@ -24,10 +27,10 @@
         <div id="nav-bar">
             <div id="nav-bar-tracks">
                 <h3>Tracks</h3>
-                <a onmouseup="loadTracks(this);">Don't Let Me Down</a>
-                <a onmouseup="loadTracks(this);">Lucy in the Sky with Diamonds</a>
-                <a onmouseup="loadTracks(this);">Norwegian Wood</a>
-                <a onmouseup="loadTracks(this);">Something</a>
+                <a>Don't Let Me Down</a>
+                <a>Lucy in the Sky with Diamonds</a>
+                <a>Norwegian Wood</a>
+                <a>Something</a>
             </div>
             <div id="nav-bar-current">
                 <h3>Current</h3>
@@ -37,7 +40,11 @@
         </div>
         
         <div id="tracks-player">
-            <span name="play" id="paused" onmouseup="togglePlayback();">► Play</span>
+            <div id="loading-wrap" style="display:none">
+                <div id="loader"></div>
+                <i>Track is loading...</i>
+            </div>
+            <span class="playback" id="paused" style="display:block;">► Play</span>
             
             <div id="controls-guide">
                     <button id="tog-guide" class="track-guide">Tog</button>
@@ -51,9 +58,9 @@
                 <button class="show-controls">Drums</button>
                 <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
-                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
-                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                        <button class="solo"">Solo</button>
+                        <button class="add"">Add</button>
+                        <button class="mute"">Mute</button>
                     </div>
                     <div class="input-wrapper">
                         <input title="Volume" id="t0-vol" type="range" min="0" max="1" step=".05" value="0.7">
@@ -70,9 +77,9 @@
                 <button class="show-controls">Bass</button>
                 <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
-                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
-                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                        <button class="solo">Solo</button>
+                        <button class="add">Add</button>
+                        <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
                         <input id="t1-vol" type="range" min="0" max="1" step=".05" value="0.7">
@@ -89,9 +96,9 @@
                 <button class="show-controls">Guitar</button>
                 <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
-                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
-                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                        <button class="solo">Solo</button>
+                        <button class="add">Add</button>
+                        <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
                         <input id="t2-vol" type="range" min="0" max="1" step=".05" value="0.7">
@@ -108,9 +115,9 @@
                 <button class="show-controls">Vox</button>
                 <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
-                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
-                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                        <button class="solo">Solo</button>
+                        <button class="add">Add</button>
+                        <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
                         <input id="t3-vol" type="range" min="0" max="1" step=".05" value="0.7">
@@ -127,9 +134,9 @@
                 <button class="show-controls">Organ + Strings</button>
                 <div class="controls">
                     <div class="toggle">
-                        <button class="solo" onmouseup="eventInterpreter(this);">Solo</button>
-                        <button class="add" onmouseup="eventInterpreter(this);">Add</button>
-                        <button class="mute" onmouseup="eventInterpreter(this);">Mute</button>
+                        <button class="solo">Solo</button>
+                        <button class="add">Add</button>
+                        <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
                         <input id="t4-vol" type="range" min="0" max="1" step=".05" value="0.7">
