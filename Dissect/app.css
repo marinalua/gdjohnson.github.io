@@ -113,6 +113,10 @@ p{
     color: green;
 }
 
+#reset {
+    color: red;
+}
+
 
 /* TRACKS */
 
@@ -122,6 +126,18 @@ p{
     width: 610px;
     border: 1px solid black;
     padding: 32px;
+}
+
+#player{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#waveform {
+    margin-left: 15px;
+    width: 70%;
 }
 
 .track{
@@ -218,7 +234,6 @@ button:hover{
 }
 
 .playback {
-    padding-bottom: 20px;
     font-style: italic;
     font-size: 28px;
     font-weight: 600;
@@ -274,7 +289,6 @@ audio {
 #loading-wrap {
     display: flex;
     align-items: baseline;
-    margin-bottom: 20px;
 }
 
 #loading-wrap i {

@@ -5,6 +5,7 @@ let track3;
 let track4;
 let tracks;
 
+let wf;
 let songEffects = [];
 
 let latest;
@@ -44,14 +45,12 @@ const resetNav = (event) => {
 // The sole functional difference between a clean refresh and a "reset track" toggle is
 // the latter preserves the track previously selected
 const loadTracks = (event) => {
-    debugger
     latest = event;
     tracksLoading();
     populateAudio(event)
 }
 
 const populateAudio = (event) => {
-    debugger
     let trackButtons = []
     let selection = event.target.innerText;
 
@@ -79,6 +78,7 @@ const populateAudio = (event) => {
                             trackButtons[2].innerHTML = "Guitar";
                             trackButtons[3].innerHTML = "Vox";
                             trackButtons[4].innerHTML = "Organ";
+                            wf = "./audio/Don't Let Me Down (organ).mp3"
                             tracks = [track0, track1, track2, track3, track4];
                             addEffects(tracks);
         });});});});});
@@ -96,6 +96,7 @@ const populateAudio = (event) => {
                             trackButtons[3].innerHTML = "Vox";
                             trackButtons[4].innerHTML = "Acoustic + Organ";
                             tracks = [track0, track1, track2, track3, track4];
+                            wf = "./audio/Lucy (acoustic + organ).mp3";
                             addEffects(tracks);
         });});});});});   
     }
@@ -112,13 +113,14 @@ const populateAudio = (event) => {
                             trackButtons[3].innerHTML = "Vox + Guitar";
                             trackButtons[4].innerHTML = "Count";
                             tracks = [track0, track1, track2, track3, track4];
+                            wf = "./audio/Norwegian Wood (count).mp3";
                             addEffects(tracks);
         });});});});});
     }
 
     if (selection == "Something"){
         track0 = new Pizzicato.Sound("./audio/Something (drums).mp3", () => {
-            console.log("track 0 ready to use!")
+            loadWaveform("./audio/Something (drums).mp3")
             track1 = new Pizzicato.Sound("./audio/Something (bass).mp3", () => {
                 console.log("track 1 ready to use!")
                 track2 = new Pizzicato.Sound("./audio/Something (guitar).mp3", () => {
@@ -133,6 +135,7 @@ const populateAudio = (event) => {
                             trackButtons[3].innerHTML = "Vox";
                             trackButtons[4].innerHTML = "Strings + Organ";
                             tracks = [track0, track1, track2, track3, track4];
+                            wf = "./audio/Something (orchestral).mp3";
                             addEffects(tracks);
         });});});});}); 
     }
@@ -207,12 +210,14 @@ const togglePlayback = (e) => {
     
     if (playback.id == "paused"){
         setTimeout(() => {
+            wavesurfer.play();
             tracks.forEach(track => track.play())
             playback.innerHTML = "Ⅱ Pause"; 
             playback.id = "playing"}, 
             100);
     } else {
         setTimeout(() => {
+            wavesurfer.pause();
             tracks.forEach(track => { track.pause(); })
             playback.innerHTML = "► Play"; 
             playback.id = "paused"}, 
@@ -257,6 +262,17 @@ const mute = (track) =>{
     track.volume = 0; 
 }
 
+const wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#666666',
+    progressColor: 'green',
+    height: '70',
+    barWidth: '3'
+});
+
+const loadWaveform = (input) => {
+    wavesurfer.load(input);
+}
     
 const resetTrack = () => {
     tracks.forEach(track => { track.stop(); })
@@ -266,7 +282,6 @@ const resetTrack = () => {
     Array.from(document.getElementsByClassName('input-wrapper')).forEach(
         wrapper => Array.from(wrapper.children).forEach(
             input => {
-                debugger
                 if (input.id.slice(3) == "vol") { input.value = "0.7" }
                 else if (input.id.slice(3) == "reverb-time") { input.value = ".01" }
                 else { input.value = "0" };
