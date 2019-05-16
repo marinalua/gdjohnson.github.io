@@ -26,9 +26,14 @@ const activateNav = () => {
     let navLinks = Array.from(document.getElementById('nav-bar-tracks').children).slice(1);
     navLinks[3].style.background = "#75757542";
     navLinks[3].style.color = "green"
-    navLinks.forEach(link => link.addEventListener('click', e => latest = e));
-    navLinks.forEach(link => link.addEventListener('click', resetTrack));
-    navLinks.forEach(link => link.addEventListener('click', resetNav));
+    navLinks.forEach(link => link.addEventListener('click', e => navAction(e)));
+}
+
+const navAction = (event) => {
+    latest = e
+    wavesurfer.stop(); wavesurfer.destroy();
+    resetTrack();
+    resetNav();
 }
 
 const resetNav = (event) => {
@@ -69,6 +74,7 @@ const populateAudio = (event) => {
     // is loaded & ready to play
     if (selection == "Don't Let Me Down"){
         track0 = new Pizzicato.Sound("./audio/Don't Let Me Down (drums).mp3", () => {
+            loadWaveform("./audio/Don't Let Me Down (drums).mp3");
             track1 = new Pizzicato.Sound("./audio/Don't Let Me Down (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Don't Let Me Down (guitar).mp3", () => {
                     track3 = new Pizzicato.Sound("./audio/Don't Let Me Down (vox).mp3", () => {
@@ -86,6 +92,7 @@ const populateAudio = (event) => {
 
     if (selection == "Lucy in the Sky with Diamonds"){
         track0 = new Pizzicato.Sound("./audio/Lucy (drums).mp3", () => {
+            loadWaveform("./audio/Lucy (drums).mp3");
             track1 = new Pizzicato.Sound("./audio/Lucy (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Lucy (organ).mp3", () => {
                     track3 = new Pizzicato.Sound("./audio/Lucy (vox).mp3", () => {
@@ -103,6 +110,7 @@ const populateAudio = (event) => {
 
     if (selection == "Norwegian Wood"){
         track0 = new Pizzicato.Sound("./audio/Norwegian Wood (drums).mp3", () => {
+            loadWaveform("./audio/Norwegian Wood (drums).mp3");
             track1 = new Pizzicato.Sound("./audio/Norwegian Wood (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Norwegian Wood (sitar).mp3", () => {
                     track3 = new Pizzicato.Sound("./audio/Norwegian Wood (vox + guitar).mp3", () => {
@@ -135,7 +143,6 @@ const populateAudio = (event) => {
                             trackButtons[3].innerHTML = "Vox";
                             trackButtons[4].innerHTML = "Strings + Organ";
                             tracks = [track0, track1, track2, track3, track4];
-                            wf = "./audio/Something (orchestral).mp3";
                             addEffects(tracks);
         });});});});}); 
     }
@@ -272,6 +279,7 @@ const wavesurfer = WaveSurfer.create({
 
 const loadWaveform = (input) => {
     wavesurfer.load(input);
+    wavesurfer.setMute(true); 
 }
     
 const resetTrack = () => {

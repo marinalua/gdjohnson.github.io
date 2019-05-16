@@ -67,7 +67,7 @@ h1{
 }
 
 #self-promotion a:hover{
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid indianred;
 }
 
 h3{
@@ -101,7 +101,6 @@ p{
 }
 
 #nav-bar a {
-    color: rgb(102, 102, 102);
     text-decoration: none;
     padding: 3px 5px 3px 5px;
     margin: 1px;
@@ -109,12 +108,24 @@ p{
     cursor: pointer;
 }
 
-#nav-bar a:hover {
+#nav-bar-tracks a {
+    color: rgb(102, 102, 102);
+}
+
+#nav-bar-tracks a:hover {
     color: green;
 }
 
 #reset {
-    color: red;
+    color: indianred;
+}
+
+#tour {
+    color: rgb(102, 102, 102);
+}
+
+#tour:hover {
+    color: green;
 }
 
 
@@ -195,7 +206,7 @@ input[type="range"] {
 .mute {
     border: 0px;
     background: transparent;
-    /* color: red; */
+    /* color: indianred; */
     opacity: 0.5;
     font-weight: 500;
     text-transform: uppercase;
@@ -230,7 +241,7 @@ input[type="range"] {
 }
 
 button:hover{
-    color: red;
+    color: indianred;
 }
 
 .playback {
@@ -242,7 +253,7 @@ button:hover{
 }
 
 #playing:hover{
-    color: red;
+    color: indianred;
 }
 
 #paused:hover{
