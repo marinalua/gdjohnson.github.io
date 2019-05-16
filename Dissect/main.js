@@ -58,12 +58,7 @@ const populateAudio = (event) => {
     let trackButtons = []
     let selection = event.target.innerText;
 
-    if (selection.length < 20) {
-        document.getElementById('track-title').innerText = selection;
-    } else {
-        const title = selection.slice(0, 21) + "...";
-        document.getElementById('track-title').innerText = title;
-    }
+    document.getElementById('track-title').innerText = selection;
 
     for (i=0; i<5; i++) {
         trackButtons.push(document.getElementById(`track-${i}`).firstElementChild)
@@ -89,7 +84,7 @@ const populateAudio = (event) => {
         });});});});});
     }
 
-    if (selection == "Lucy in the Sky with Diamonds"){
+    if (selection == "Lucy in the Sky with..."){
         track0 = new Pizzicato.Sound("./audio/Lucy (drums).mp3", () => {
             loadWaveform("./audio/Lucy.mp3");
             track1 = new Pizzicato.Sound("./audio/Lucy (bass).mp3", () => {
@@ -297,8 +292,8 @@ const mute = (track) =>{
 // WAVEFORM
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    waveColor: '#666666',
-    progressColor: 'green',
+    waveColor: '#999999',
+    progressColor: '#666666',
     height: '70',
     barWidth: '3'
 });
