@@ -305,7 +305,7 @@ const wavesurfer = WaveSurfer.create({
 
 const loadWaveform = (input) => {
     wavesurfer.load(input);
-    // wavesurfer.setMute(true); 
+    wavesurfer.setMute(true); 
 }
     
 
