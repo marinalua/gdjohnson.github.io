@@ -5,7 +5,6 @@ let track3;
 let track4;
 let tracks;
 
-let globalValue;
 let wf;
 let songEffects = [];
 
