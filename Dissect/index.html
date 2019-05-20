@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="app.css">
     <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 
     <title>D I S S E C T</title>
 
@@ -45,9 +46,9 @@
             <div id="player">
                     <div id="loading-wrap" style="display:none">
                         <div id="loader"></div>
-                        <i>Loading...</i>
+                        <i>Drawing...</i>
                     </div>
-                    <span class="playback" id="paused" style="display:block;">► Play</span>
+                    <div class="playback" id="paused" style="display:flex;"><ion-icon name="play"></ion-icon><span> Play</span></div>
                     <div id="waveform"></div>
             </div>
                     <div id="controls-guide">
@@ -67,12 +68,12 @@
                         <button class="mute"">Mute</button>
                     </div>
                     <div class="input-wrapper">
-                        <input title="Volume" id="t0-vol" type="range" min="0" max="1" step=".05" value="0.7" onchange="changeMonitor(this.value)">
-                        <input title="Pan" id="t0-pan" type="range" min="-1" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
-                        <input title="Distortion" id="t0-dist-gain" type="range" min="0" max="1" step="0.05" value="0" onchange="changeMonitor(this.value)">
-                        <input title="Reverb Time" id="t0-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01" onchange="changeMonitor(this.value)">
-                        <input title="Reverb Decay" id="t0-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0" onchange="changeMonitor(this.value)">
-                        <input title="ReverbMix" id="t0-reverb-mix" type="range" min="0" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
+                        <input title="Volume" id="t0-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input title="Pan" id="t0-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input title="Distortion" id="t0-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input title="Reverb Time" id="t0-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input title="Reverb Decay" id="t0-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input title="ReverbMix" id="t0-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
                     </div>
                 </div>
             </div>
@@ -86,12 +87,12 @@
                         <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
-                        <input id="t1-vol" type="range" min="0" max="1" step=".05" value="0.7" onchange="changeMonitor(this.value)">
-                        <input id="t1-pan" type="range" min="-1" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t1-dist-gain" type="range" min="0" max="1" step="0.05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t1-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01" onchange="changeMonitor(this.value)">
-                        <input id="t1-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t1-reverb-mix" type="range" min="0" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
+                        <input id="t1-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t1-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t1-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t1-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t1-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t1-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
                     </div>
                 </div>
             </div>
@@ -105,12 +106,12 @@
                         <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
-                        <input id="t2-vol" type="range" min="0" max="1" step=".05" value="0.7" onchange="changeMonitor(this.value)">
-                        <input id="t2-pan" type="range" min="-1" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t2-dist-gain" type="range" min="0" max="1" step="0.05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t2-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01" onchange="changeMonitor(this.value)">
-                        <input id="t2-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t2-reverb-mix" type="range" min="0" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
+                        <input id="t2-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t2-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t2-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t2-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t2-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t2-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
                     </div>
                 </div>
             </div>
@@ -124,12 +125,12 @@
                         <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
-                        <input id="t3-vol" type="range" min="0" max="1" step=".05" value="0.7" onchange="changeMonitor(this.value)">
-                        <input id="t3-pan" type="range" min="-1" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t3-dist-gain" type="range" min="0" max="1" step="0.05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t3-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01" onchange="changeMonitor(this.value)">
-                        <input id="t3-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t3-reverb-mix" type="range" min="0" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)"> 
+                        <input id="t3-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t3-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t3-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t3-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t3-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t3-reverb-mix" type="range" min="0" max="1" step="0.1" value="0"> 
                     </div>
                 </div>
             </div>
@@ -143,12 +144,12 @@
                         <button class="mute">Mute</button>
                     </div>
                     <div class="input-wrapper">
-                        <input id="t4-vol" type="range" min="0" max="1" step=".05" value="0.7" onchange="changeMonitor(this.value)">
-                        <input id="t4-pan" type="range" min="-1" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t4-dist-gain" type="range" min="0" max="1" step="0.05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t4-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01" onchange="changeMonitor(this.value)">
-                        <input id="t4-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0" onchange="changeMonitor(this.value)">
-                        <input id="t4-reverb-mix" type="range" min="0" max="1" step="0.1" value="0" onchange="changeMonitor(this.value)">
+                        <input id="t4-vol" type="range" min="0" max="1" step=".05" value="0.7">
+                        <input id="t4-pan" type="range" min="-1" max="1" step="0.1" value="0">
+                        <input id="t4-dist-gain" type="range" min="0" max="1" step="0.05" value="0">
+                        <input id="t4-reverb-time" type="range" min=".01" max="3.0" step=".05" value=".01">
+                        <input id="t4-reverb-decay" type="range" min="0" max="3.0" step=".05" value="0">
+                        <input id="t4-reverb-mix" type="range" min="0" max="1" step="0.1" value="0">
                     </div>
                 </div>
             </div>

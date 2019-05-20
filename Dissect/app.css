@@ -168,7 +168,6 @@ p{
     background: white;
     color: black;
     text-align: center;
-    cursor: pointer;
 }
 
 .controls {
@@ -245,11 +244,17 @@ input[type="range"] {
 }
 
 .playback {
+    align-items: center;
+
     font-style: italic;
     font-size: 28px;
     font-weight: 600;
     cursor: pointer;
     width: 120px;
+}
+
+ion-icon {
+    margin-right: 7px;
 }
 
 #playing:hover{

@@ -71,6 +71,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Don't Let Me Down.mp3");
             track1 = new Pizzicato.Sound("./audio/Don't Let Me Down (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Don't Let Me Down (guitar).mp3", () => {
+                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Don't Let Me Down (vox).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Don't Let Me Down (organ).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -89,6 +90,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Lucy.mp3");
             track1 = new Pizzicato.Sound("./audio/Lucy (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Lucy (organ).mp3", () => {
+                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Lucy (vox).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Lucy (acoustic + organ).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -107,6 +109,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Norwegian Wood.mp3");
             track1 = new Pizzicato.Sound("./audio/Norwegian Wood (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Norwegian Wood (sitar).mp3", () => {
+                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Norwegian Wood (vox + guitar).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Norwegian Wood (count).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -124,13 +127,10 @@ const populateAudio = (event) => {
         track0 = new Pizzicato.Sound("./audio/Something (drums).mp3", () => {
             loadWaveform("./audio/Something.mp3")
             track1 = new Pizzicato.Sound("./audio/Something (bass).mp3", () => {
-                console.log("track 1 ready to use!")
                 track2 = new Pizzicato.Sound("./audio/Something (guitar).mp3", () => {
-                    console.log("track 2 ready to use!")
+                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Something (vox).mp3", () => {
-                        console.log("track 3 ready to use!")
                         track4 = new Pizzicato.Sound("./audio/Something (orchestral).mp3", () => {
-                            console.log("track 4 ready to use!")
                             trackButtons[0].innerHTML = "Drums";
                             trackButtons[1].innerHTML = "Bass";
                             trackButtons[2].innerHTML = "Guitar";
@@ -172,30 +172,61 @@ const addEffects = (tracks) => {
     addListeners(tracks);
 }
 
-const changeMonitor = (value) => {
-    document.getElementById('global-value').innerText = value;
+
+// Adapted event listener by Andrew Willems. Tracks live range input changes cross-browser
+function onRangeChange(rangeInputElmt, changeMonitor) {
+
+    let inputEvtHasNeverFired = true;
+    let rangeValue = {current: undefined, mostRecent: undefined};
+    
+    rangeInputElmt.addEventListener("input", function(event) {
+      inputEvtHasNeverFired = false;
+      rangeValue.current = event.target.value;
+      if (rangeValue.current !== rangeValue.mostRecent) {
+        changeMonitor(event);
+      }
+      rangeValue.mostRecent = rangeValue.current;
+    });
+  
+    rangeInputElmt.addEventListener("change", function(event) {
+      if (inputEvtHasNeverFired) {
+        changeMonitor(event);
+      }
+    }); 
+  
+}
+
+const changeMonitor = (event) => {
+    debugger
+    document.getElementById('global-value').innerText = event.target.value;
 }
 
 const addListeners = (tracks) => {
     tracks.forEach((track, idx) => {
-        document.getElementById(`t${idx}-vol`).addEventListener('mouseup', (e) => {
-            track.volume = e.target.valueAsNumber;})
+        const vol = document.getElementById(`t${idx}-vol`);
+        onRangeChange(vol, changeMonitor);
+        vol.addEventListener('mouseup', e => track.volume = e.target.valueAsNumber)
        
-        document.getElementById(`t${idx}-reverb-time`).addEventListener('mouseup', (e) => {
-            songEffects[idx].reverb.time = e.target.valueAsNumber;})
+        const time = document.getElementById(`t${idx}-reverb-time`);
+        onRangeChange(time, changeMonitor);
+        time.addEventListener('mouseup', e => songEffects[idx].reverb.time = e.target.valueAsNumber)
         
-        document.getElementById(`t${idx}-reverb-decay`).addEventListener('mouseup', (e) => {
-            songEffects[idx].reverb.decay = e.target.valueAsNumber;})
+        const decay = document.getElementById(`t${idx}-reverb-decay`);
+        onRangeChange(decay, changeMonitor);
+        decay.addEventListener('mouseup', e =>  songEffects[idx].reverb.decay = e.target.valueAsNumber)
         
-        document.getElementById(`t${idx}-reverb-mix`).addEventListener('mouseup', (e) => {
-            songEffects[idx].reverb.mix= e.target.valueAsNumber;})
+        const mix = document.getElementById(`t${idx}-reverb-mix`);
+        onRangeChange(mix, changeMonitor);
+        mix.addEventListener('mouseup', e => songEffects[idx].reverb.mix = e.target.valueAsNumber)
         
-        document.getElementById(`t${idx}-dist-gain`).addEventListener('mouseup', (e) => {
-            songEffects[idx].distortion.gain = e.target.valueAsNumber;})
+        const gain = document.getElementById(`t${idx}-dist-gain`);
+        onRangeChange(gain, changeMonitor);
+        gain.addEventListener('mouseup', e => songEffects[idx].distortion.gain = e.target.valueAsNumber)
 
-        document.getElementById(`t${idx}-pan`).addEventListener('mouseup', (e) => {
-            songEffects[idx].pan.pan = e.target.valueAsNumber;})
-        })
+        const pan = document.getElementById(`t${idx}-pan`);
+        onRangeChange(pan, changeMonitor);
+        pan.addEventListener('mouseup', e => songEffects[idx].pan.pan = e.target.valueAsNumber)
+    })
 
     tracksLoaded();
 }
@@ -207,7 +238,7 @@ const tracksLoading = () => {
 
 const tracksLoaded = () => {
     document.getElementById('loading-wrap').style.display = "none";
-    document.getElementById('paused').style.display = "block";
+    document.getElementById('paused').style.display = "flex";
 }
 
 const resetTrack = () => {
@@ -226,24 +257,28 @@ const resetTrack = () => {
     )
     
     let playback = document.getElementsByClassName('playback')[0];
-    playback.innerHTML = "► Play"; playback.id = "paused";
+    playback.children[0].name = 'play'; 
+    playback.children[1].innerText = ' Play';
+    playback.id = "paused";
 }
 
 const togglePlayback = (e) => {
-    let playback = e.target;
-    
+    let playback = document.getElementsByClassName('playback')[0];
+    debugger
     if (playback.id == "paused"){
         setTimeout(() => {
             wavesurfer.play();
             tracks.forEach(track => track.play())
-            playback.innerHTML = "Ⅱ Pause"; 
+            playback.children[0].name = 'pause'; 
+            playback.children[1].innerText = ` Pause`
             playback.id = "playing"}, 
             100);
     } else {
         setTimeout(() => {
             wavesurfer.pause();
             tracks.forEach(track => { track.pause(); })
-            playback.innerHTML = "► Play"; 
+            playback.children[0].name = 'play';
+            playback.children[1].innerText = ' Play' 
             playback.id = "paused"}, 
             100);
     }
