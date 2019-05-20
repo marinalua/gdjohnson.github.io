@@ -63,6 +63,8 @@ const populateAudio = (event) => {
     for (i=0; i<5; i++) {
         trackButtons.push(document.getElementById(`track-${i}`).firstElementChild)
     }
+
+    let loadingMsg = document.getElementById('loading-wrap').children[1]
     
     // Track loading is structured as a series of callbacks, called when the parent function
     // is loaded & ready to play
@@ -71,7 +73,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Don't Let Me Down.mp3");
             track1 = new Pizzicato.Sound("./audio/Don't Let Me Down (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Don't Let Me Down (guitar).mp3", () => {
-                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
+                    loadingMsg.innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Don't Let Me Down (vox).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Don't Let Me Down (organ).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -90,7 +92,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Lucy.mp3");
             track1 = new Pizzicato.Sound("./audio/Lucy (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Lucy (organ).mp3", () => {
-                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
+                    loadingMsg.innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Lucy (vox).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Lucy (acoustic + organ).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -109,7 +111,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Norwegian Wood.mp3");
             track1 = new Pizzicato.Sound("./audio/Norwegian Wood (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Norwegian Wood (sitar).mp3", () => {
-                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
+                    loadingMsg.innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Norwegian Wood (vox + guitar).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Norwegian Wood (count).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -128,7 +130,7 @@ const populateAudio = (event) => {
             loadWaveform("./audio/Something.mp3")
             track1 = new Pizzicato.Sound("./audio/Something (bass).mp3", () => {
                 track2 = new Pizzicato.Sound("./audio/Something (guitar).mp3", () => {
-                    document.getElementById('loading-wrap').children[1].innerText = "Buffering...";
+                    loadingMsg.innerText = "Buffering...";
                     track3 = new Pizzicato.Sound("./audio/Something (vox).mp3", () => {
                         track4 = new Pizzicato.Sound("./audio/Something (orchestral).mp3", () => {
                             trackButtons[0].innerHTML = "Drums";
@@ -334,6 +336,7 @@ const wavesurfer = WaveSurfer.create({
 });
 
 const loadWaveform = (input) => {
+    document.getElementById('loading-wrap').children[1].innerText = "Drawing..."
     wavesurfer.load(input);
     wavesurfer.setMute(true); 
 }
