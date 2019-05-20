@@ -332,7 +332,8 @@ const wavesurfer = WaveSurfer.create({
     waveColor: '#999999',
     progressColor: '#666666',
     height: '70',
-    barWidth: '3'
+    barWidth: '3',
+    hideScrollbar: true
 });
 
 const loadWaveform = (input) => {
