@@ -199,7 +199,6 @@ function onRangeChange(rangeInputElmt, changeMonitor) {
 }
 
 const changeMonitor = (event) => {
-    debugger
     document.getElementById('global-value').innerText = event.target.value;
 }
 
@@ -266,7 +265,6 @@ const resetTrack = () => {
 
 const togglePlayback = (e) => {
     let playback = document.getElementsByClassName('playback')[0];
-    debugger
     if (playback.id == "paused"){
         setTimeout(() => {
             wavesurfer.play();
