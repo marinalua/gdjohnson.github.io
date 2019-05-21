@@ -137,7 +137,25 @@ const populateAudio = (event) => {
                             trackButtons[1].innerHTML = "Bass";
                             trackButtons[2].innerHTML = "Guitar";
                             trackButtons[3].innerHTML = "Vox";
-                            trackButtons[4].innerHTML = "Strings + Organ";
+                            trackButtons[4].innerHTML = "Orchestral";
+                            tracks = [track0, track1, track2, track3, track4];
+                            addEffects(tracks);
+        });});});});}); 
+    }
+
+    if (selection == "I Want You"){
+        track0 = new Pizzicato.Sound("./audio/I Want You (drums).mp3", () => {
+            loadWaveform("./audio/I Want You.mp3")
+            track1 = new Pizzicato.Sound("./audio/I Want You (bass).mp3", () => {
+                track2 = new Pizzicato.Sound("./audio/I Want You (guitar).mp3", () => {
+                    loadingMsg.innerText = "Buffering...";
+                    track3 = new Pizzicato.Sound("./audio/I Want You (vox).mp3", () => {
+                        track4 = new Pizzicato.Sound("./audio/I Want You (organ).mp3", () => {
+                            trackButtons[0].innerHTML = "Drums";
+                            trackButtons[1].innerHTML = "Bass";
+                            trackButtons[2].innerHTML = "Guitar";
+                            trackButtons[3].innerHTML = "Vox";
+                            trackButtons[4].innerHTML = "Organ";
                             tracks = [track0, track1, track2, track3, track4];
                             addEffects(tracks);
         });});});});}); 
