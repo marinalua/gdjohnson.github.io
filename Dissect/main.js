@@ -15,9 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('paused').addEventListener('click', togglePlayback);
     document.getElementById('rev-guide').addEventListener('mouseenter', revealReverb);
     document.getElementById('rev-guide').addEventListener('mouseleave', hideReverb);
-    Array.from(document.getElementsByClassName('toggle')).forEach(
-        toggle => Array.from(toggle.children).forEach(
-            childButton => childButton.addEventListener('click', eventInterpreter)) )
+    setToggles();
     activateNav();
     loadTracks({target: {innerText: "Something"}, style: true});
     // document.getElementById('reset').addEventListener('click', tourTrack);
@@ -45,6 +43,17 @@ const resetNav = (event) => {
     });
     linkStyle.color = "green";
     linkStyle.background = "#75757542";
+}
+
+const setToggles = () => {
+    Array.from(document.getElementsByClassName('toggle')).forEach(
+        toggle => Array.from(toggle.children).forEach(
+            childButton => {
+                childButton.style.color = "inherit";
+                childButton.addEventListener('click', eventInterpreter);
+            }
+        ) 
+    )
 }
 
 // CONFIGURE AUDIO
@@ -137,7 +146,7 @@ const populateAudio = (event) => {
                             trackButtons[1].innerHTML = "Bass";
                             trackButtons[2].innerHTML = "Guitar";
                             trackButtons[3].innerHTML = "Vox";
-                            trackButtons[4].innerHTML = "Orchestral";
+                            trackButtons[4].innerHTML = "Orchestra";
                             tracks = [track0, track1, track2, track3, track4];
                             addEffects(tracks);
         });});});});}); 
@@ -263,6 +272,7 @@ const tracksLoaded = () => {
 const resetTrack = () => {
     wavesurfer.stop();
     tracks.forEach(track => { track.stop(); })
+    setToggles();
     songEffects = [];
     loadTracks(latest);
 
@@ -310,14 +320,17 @@ const eventInterpreter = (event) => {
     const action = event.target.innerHTML;
 
     if (action == "Solo") {
+        event.target.style.color = "green";
         solo(track);
     } 
 
     if (action == "Add") {
+        event.target.style.color = "yellow";
         add(track);
     }
 
     if (action == "Mute") {
+        event.target.style.color = "red";
         mute(track);
     }
 }
