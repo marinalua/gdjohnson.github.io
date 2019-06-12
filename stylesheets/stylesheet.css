@@ -174,3 +174,33 @@ ol, ul {
 #random {
   margin-top: 14px;
 }
+
+.fa-file-alt {
+  color: goldenrod;
+  padding: 5px 20px 5px 0px;
+}
+
+.fa-home {
+  height: min-content;
+  font-size: 33px;
+}
+
+.fa-home:hover {
+  color: green;
+}
+
+#docs-upper {
+  display: flex;
+  align-items: center;
+}
+
+#docs-nav h2{
+  margin-right: 300px;
+  font-size: 36px;
+}
+
+
+#docs-lower a {
+  text-decoration: none;
+  font-size: 16px;
+}
