@@ -315,7 +315,6 @@ const togglePlayback = (e) => {
 
 // TOGGLES
 const eventInterpreter = (event) => {
-    
     const track = tracks[parseInt(event.target.parentElement.parentElement.parentElement.id.slice(6))];
     const action = event.target.innerHTML;
 
