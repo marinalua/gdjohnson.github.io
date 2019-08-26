@@ -5,6 +5,8 @@ Remix The Beatles.
 
 **Technologies**: ES6, Web Audio API, PizzicatoJS, WaveformJS.
 
+![Player](/../dev/img/Dissect%202.png)
+
 ### Background
 
 Audio stems are isolated tracks that get combined to form a song's final mix. Depending on the way the track is being produced and recorded, stems can contain anything from a minor audio effect to a vocal line to the rhythm sectin of a song. By toggling, isolating, combining, and remixing these audio stems, listeners can get a better sense of how a song is put together. Elements that were once hidden in the mix, or which played subtle, supplementary roles can be given the spotlight.
@@ -51,11 +53,6 @@ Users will be able to:
 - [x] Adjust the mix volume of individual stems.
 - [x] Add effects like reverb and gain.
 - [ ] Take track tours with predetermined mixes (in progress).
-
-### Wireframes
-
-This app will consist of a single screen with stems, audio controls, a display a summary of the custom mix, and nav links to the Github, my LinkedIn, and the Help manual. Audio controls will include play, pause, stop, mute, solo, a pan control, and a volume slider. 
-![wireframes](https://github.com/gdjohnson/Come-Together/blob/master/Untitled%20presentation.png)
 
 ### Architecture and Technologies
 
