@@ -51,6 +51,9 @@ a {
 		a {
 			font-size: 30px;
 			color: $black;
+			&:hover {
+				color: red;
+			}
 		}
 	}
 	.templateux-menu {
