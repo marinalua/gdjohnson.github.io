@@ -5,7 +5,7 @@ Remix The Beatles.
 
 **Technologies**: ES6, Web Audio API, PizzicatoJS, WaveformJS.
 
-![Player](/../dev/img/Dissect%202.png)
+![Player](/../dev/img/Dissect 2.png) 
 
 ### Background
 
