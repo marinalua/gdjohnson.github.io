@@ -43,8 +43,6 @@ const reverb = new Pizzicato.Effects.Reverb({
                 });
 ```
 
-**Functionality & MVPs**
-
 ### Functionality & MVPs
 
 Users will be able to:
