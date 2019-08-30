@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<meta charset=utf-8>
+<title>Second Balcony</title>
+<link rel=stylesheet href=../backup.css>
+
+<body class=archive>
+
+<header>
+<h1>February 2014</h1>
+</header>
+
+<article class=text id=p-71581161754>
+<header>
+<p><time datetime=2014-02-21T22:29:00Z>02/21/2014 05:29:00 PM</time>
+<a class=llink href=../posts/71581161754.html>¶</a>
+<a href=https://tmblr.co/ZW8hPy12gaTaQ>●</a>
+</header>
+<p>&lsquo;Compressiveness&rsquo;, back by request:</p>
+<!-- more -->
+
+<p><b>Jürgen Schmidhuber’s Theory</b></p>
+
+<p>Jürgen Schmidhuber, an AI theorist and theoretical computer scientist, has proposed a computational account of aesthetic judgments. On his view, a stimulus is judged to be beautiful or attractive by a subject T to the extent that the stimulus is compressible for T. Schmidhuber’s notion of compressibility is taken from algorithmic information theory, but concerns actual rather than ideal compression: it refers to the actual # of bits in T&rsquo;s mental representation of the stimulus, bounded and fallible as T may be. Beholden to the limitations of T&rsquo;s computational resources, two kinds of stimuli should be the most compressible: stimuli with evident internal structure (e.g. fractals or a chessboard), and stimuli with noticeable similarities to stimuli already stored in T&rsquo;s history<sup><a href="#sdfootnote1sym" target="_blank">1</a></sup> (e.g. English words, or the sight of a friend’s face). Experimental psychology supports both a preference for stimuli with internal patterns and a preference for stimuli with a similarity to past stimuli.</p>
+<p>There are obvious problems with this account if we take it as a full account of beauty. A chessboard, while very simple, would rarely be called beautiful. Moreover, it seems that the most profound aesthetic experiences often come from complex stimuli: the city of Rome, the philosophy of Plato or Wittgenstein, art by Picasso, Joyce or Stravinsky. Schmidhuber argues for explaining beauty as compressibility, but it may be better to identify compressibility with attractiveness, pleasantness, or niceness. Schmidhuber explains the lack of strong preference for very simple stimuli by their not being interesting. Schmidhuber gives interestingness a simple formal analysis in terms of compressibility. Whereas beauty (or attractiveness, etc.) is the subjective compressibility of a stimulus, interestingness is the rate at which the subjective compressibility changes over time as T processes the stimulus: Beauty (etc.) of stimulus S for subject T = -# bits in T’s mental representation of S Interestingness of S for T = rate of change in the # of bits used to represent S by T over time = d(Beauty) / d(Time).</p>
+
+<p><b>Extending Schmidhuber: art, compressibility, and ‘compressiveness’ </b></p>
+
+<p>I think that ‘interestingness’ puts Schmidhuber on the right track, but that considering a stronger property relating a stimulus to compression progress can further contribute to our understanding of aesthetic objects in art, math, philosophy and music. Recall that (if you accept Schmidhuber’s basic approach) when a subject T encounters a novel stimulus S, T searches for ways to encode S on the basis of the extant objects in her history.  (We say that an object x can be used as a basis for encoding S if the length of the shortest code for x+S is smaller than the sum of the lengths of the shortest code for x and the shortest code for S. This relation doesn&rsquo;t guarantee that <i>every</i> history containing x can be used to effectively compress S, but this further fact should hold whenever specifying a pointer to x in the history is sufficiently cheap.)  Could this search have implications beyond determining the length of T&rsquo;s representation of S? I believe it can: If T&rsquo;s search reveals multiple different effective ways to compress S using (respective) different objects in her history, this may give T indication that she can use S to improve the compression of her extant history<sup><a href="#sdfootnote2sym" target="_blank">2</a></sup>.  In the strongest case, it may indicate that T should use S to encode the various objects that could have each been used to encode S. More modestly, it may indicate that there is an unexploited compressive relationship between the various objects that could have each been used as a basis for encoding S.</p>
+<p>We can define a property called ‘compressiveness’ to formalize the above idea<a href="#sdfootnote3sym" target="_blank"><sup>3</sup></a>. Vitanyl et al. present a metric called the normalized information distance (‘NID’) between two strings, defined by NID (x,y) = max {K(x|y),K(y| x)}/ max{K(x),K(y)}, where K(x) is the Kolmogorov complexity of x. Let us define SK(x) as the subjective complexity of a string x, s.t. SK(x) is the length of the subject’s actual program for generating string x. Let us then define a subjective normalized information distance, SNID, by replicating NID in terms of SK. We can now use SNID to define <i>compressiveness</i>: <br/><br/>A stimulus z is <i>compressive</i> for a subject T if it violates the triangle inequality SNID (x, y) ≤ SNID (x, z) + SNID (z, y) for some objects x, y in the subject’s history. <br/><br/>The idea is the following: Because the triangle inequality always holds for the objective NID (Vitanyl et al.), if T detects that her SNID violates the triangle inequality for z, T learns that there are unexploited patterns in her history, and that z is the ‘key’ to these patterns. Compression gains reducing SNID (x, y) to SNID (x, z) + SNID (z, y) or below follow under plausible assumptions. (Prima facie, compressiveness is a stronger property than Schmidhuber’s ‘interestingness’: exposure to compressive stimuli constitutes a net reduction in the absolute # of bits used to represent one’s history.) Informally, a novel stimulus S is ‘compressive’ for T if S is tractably (for T) related to multiple other objects whose relation to one another was not independently tractable (for T). We might think of compressive stimuli as previously undiscovered ‘prototypes’ for objects in T&rsquo;s history of stimuli, allowing the construction of new prototype-based concepts that cluster previously disparate objects together. (Compare with Poincaré: “The [beautiful]<sup>4</sup> mathematical facts are those which, by their analogy with other facts, are capable of leading us to the knowledge of a mathematical law… They are those which reveal to us unsuspected kinship between other facts, long known, but wrongly believed to be strangers to one another. … Among chosen combinations the most fertile will often be those formed of elements drawn from domains which are far apart.”) </p>
+<p>I suggest that compressive stimuli have a key role in aesthetics. A major part of modern aesthetic discourse concerns stimuli that ‘resonate’ with many previously disconnected things one has encountered, felt or thought, and in so resonating reveal new affinities between these previously disconnected things. One often praises an artwork for being ‘uncanny’ or ‘strange yet familiar’, or for being ‘richly evocative’, or for ‘concentrating a very great number of experiences’ (cf. Eliot) or ‘revealing the before unapprehended relations of things’ (cf. Shelley). These aesthetic merits are often understood to be closely related to the capacity of art to define new concepts via prototype (cf. Shelley, Coleridge, Carnap, Dilthey): when the novel affinities revealed by an artwork are sufficiently strong, one talks about an artwork ‘articulating’ a general phenomenon or pattern that is otherwise hard to pin down, or about an artwork serving as the prototype that defines a category that is hard to otherwise define. (E.g. ‘Kafkaesque experience,’ ‘Pinteresque conversation,’ ‘Orwellian society.’) The idea of compressiveness thus seems strongly implicit in certain aspects of modern aesthetic discourse, both in aesthetic theory and in the practice of literary criticism. One sees a particularly strong connection to the role of indeterminacy, hybridity and abstraction in Modernist art and literature: the ideal stimuli for ‘breaking’ the triangle inequality between two objects are the minimal — i.e. the most compressible — exemplars of a structure common to both objects (or of a structure closely resembling the respective structure of each object.) For example, it is often stated that Kafka’s short stories capture a structure of experience — the ‘Kafkaesque&rsquo; — that one finds in a range of disparate experiences (or conceptions of experiences), making a Kafka story equally evocative of e.g. the experience of going to the bank, the experience of being broken-up with, the experience of waking up in a daze, the experience of being lost in a foreign city, or the experience of a police interrogation. It’s plausible that hybrid elements &ndash; mixtures of elements from different scenarios &ndash; work together with the structural resonance of the text to draw out these respective scenarios as candidate bases of reference, whose fitness to function as bases of reference a compression-test then confirms. The story thus functions as a nearly-minimal concrete model of the abstract structure shared by the disparate experiences that fall under the predicate ‘Kafkaesque,’ allowing to group together experiences  that embody this structure the at whatever level of abstraction. </p>
+<p>___________________________________________________________________</p>
+
+<p>1 We can define a basic ‘programming language’ L for T and then define the compressibility of a stimulus S as T’s shortest known efficient program (in L) for generating S given use of T’s stored history of stimuli, or we can regard T as constantly optimizing her ‘programming language’ to match observed probabilities and define the compressibility of S directly as T’s shortest known efficient program for generating S.</p>
+<p>2 Joint algorithmic complexity is symmetric up to an additive constant, so K(x,S) doesn’t determine K(S,x) but does put a bound on it. </p><p>3 Of course, this only applies to imperfect compressors like humans. An optimal compressors would simply come up with S a-priori.</p>
+<p>4 Notice that a drive to discover compressive stimuli is already implied by Schmidhuber’s ‘compression progress drive,’ which we accept without modification. We differ from Schmidhuber in differently relating the compression progress drive to aesthetic judgements of stimuli, by distinguishing compressive stimuli from merely interesting stimuli as the class of stimuli whose relation to compression progress corresponds to aesthetic beauty.</p>
+<p>5 Poincare originally writes this of 'the mathematical facts worthy of being studied&rsquo;. Later, Poincare writes:'The only mathematical facts worthy of fixing our attention and capable of being useful are those which can teach us a mathematical law. So that we reach the following conclusion: The useful combinations are precisely the most beautiful.&ldquo; </p>
+<p>(Parts of the text are taken from shared work with Owain Evans, MIT.)</p>
+<footer>5 notes</footer>
+</article>
+<article class=text id=p-76529885265>
+<header>
+<p><time datetime=2014-02-13T15:19:00Z>02/13/2014 10:19:00 AM</time>
+<a class=llink href=../posts/76529885265.html>¶</a>
+<a href=https://tmblr.co/ZW8hPy17HYM1H>●</a>
+</header>
+<p>It&rsquo;s barely represented in TV and film that couples spend most of their private time talking weird gibberish. </p>
+<footer>9 notes</footer>
+</article>
+<article class=text id=p-76527300184>
+<header>
+<p><time datetime=2014-02-13T14:39:00Z>02/13/2014 09:39:00 AM</time>
+<a class=llink href=../posts/76527300184.html>¶</a>
+<a href=https://tmblr.co/ZW8hPy17HOUvO>●</a>
+</header>
+<p>Ten years ago my taste &ndash; like, only liking things that have this alienated German-Romantic frigidness to them, in a Schlegel irony sense but more importantly a Schiller pathos sense where frigidness necessitates an emotional earthquake to constitute itself as a sublation of  &ndash;  was considered *so* masculinist, if arguably queer. Now it&rsquo;s kind of the defining feminine aesthetic of the moment, with Gaga and Lana Del Rey and Lorde. (Previously seen in 2003-2006 hip hop, between when Jay-Z finished teaching everyone how to do it and when Jay-Z forgot how to do it.) </p>
+<footer>9 notes</footer>
+</article>
+<article class=text id=p-76234929717>
+<header>
+<p><time datetime=2014-02-10T17:49:00Z>02/10/2014 12:49:00 PM</time>
+<a class=llink href=../posts/76234929717.html>¶</a>
+<a href=https://tmblr.co/ZW8hPy16-zBOr>●</a>
+</header>
+<p>An Integral Over The New Inquiry: &lsquo;Facebook is affective labour for the NSA.&rsquo;</p>
+<footer>7 notes</footer>
+</article>
+<footer><nav><a href=../index.html rel=index>Index</a>
+| <a href=2014-03-p1.html rel=prev>Previous</a>
+| <a href=2014-01-p1.html rel=next>Next</a>
+</nav></footer>
