@@ -1,0 +1,8 @@
+author: sunny.sempai
+
+statement: 
+
+Kaomoji (顔文字; literally, “face mark”) is the Japanese version of a emoticon, written vertically.
+
+I started the idea of creating a page for kaomoji a long time ago, when I had to depend on Japanese sites to find the ones I liked. However, I wasn’t sure about how to proceed with the idea – nobody I knew had any experience with creating websites so I ended up putting the entire idea on hold. When I entered college I met one of my friends introduced me to the basics of web-hosting. So with that problem out of the way, I finally have time to start on my project: make the best kaomoji website on the internet!
+

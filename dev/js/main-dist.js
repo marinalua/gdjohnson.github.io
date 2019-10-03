@@ -6,10 +6,7 @@ AOS.init({
 jQuery(document).ready(function($){
   'use strict';
 
-  
-  // Animsition
-  $(".animsition").animsition();
-  
+
   // Scrollax
   $.Scrollax();
 
