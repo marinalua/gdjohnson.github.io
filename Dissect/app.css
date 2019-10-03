@@ -284,7 +284,6 @@ audio {
 #global-value-wrapper {
     width: 100px;
     height: 30px;
-    margin-right: 21px;
     position: relative;
 
     display: flex;
