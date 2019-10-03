@@ -1,7 +1,7 @@
 # Dissect
 Remix The Beatles. 
 
-**[Live Link](https://gdjohnson.github.com/Dissect)**
+**[Live Link](https://gdjohnson.github.io/Dissect)**
 
 **Technologies**: ES6, Web Audio API, PizzicatoJS, WaveformJS.
 
