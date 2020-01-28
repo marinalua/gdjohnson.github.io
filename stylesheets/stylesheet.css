@@ -59,7 +59,6 @@ body {
 #intro {
   display: flex;
   justify-content: left;
-  padding-bottom: 10px;
 }
 
 #header-name {
@@ -89,7 +88,7 @@ body {
   padding-right: 5px;
 }
 
-article {
+#column-wrap {
   display: flex;
 }
 
@@ -106,34 +105,28 @@ article {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-decoration: none;
+  margin-top: 18px;
+  margin-bottom: 6px;
 }
 
 h1 {
   font-size: 36px;
-  margin-bottom: 6px;
-  margin-top: 12px;
 }
 
 h2 {
   font-size: 32px;
-  margin-bottom: 5px;
-  margin-top: 10px;
 }
 
 h3 {
   font-size: 24px;
-  margin-bottom: 3px;
-  margin-top: 7px;
 }
 
 h4 {
   font-size: 21px;
-  margin-top: 7px;
 }
 
 h5 {
   font-size: 18px;
-  margin-top: 7px;
 }
 
 h6 {
@@ -165,14 +158,6 @@ ol, ul {
 
 .friends {
   padding-right: 25px;
-}
-
-#pdf-marketplace {
-  margin-top: 7px;
-}
-
-#random {
-  margin-top: 14px;
 }
 
 .fa-file-alt {
